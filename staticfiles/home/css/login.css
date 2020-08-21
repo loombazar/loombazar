@@ -1,0 +1,64 @@
+input.error {
+    color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.error {
+    color: Red;
+}
+
+#loginform span {
+    color: red;
+    font-size: 20px;
+}
+
+#registerform span {
+    color: red;
+    font-size: 20px;
+}
+
+
+/* .mycontent-left {
+  border-right: 1px solid #333;
+} */
+
+.sign-with {
+    margin-top: 25px;
+    padding: 20px;
+}
+
+
+/* container modification for login page */
+
+.logincontainer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .logincontainer {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .logincontainer {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 992px) {
+    .logincontainer {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .logincontainer {
+        max-width: 815px;
+    }
+}

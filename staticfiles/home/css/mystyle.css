@@ -1,0 +1,25 @@
+.categories__item:hover {
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+.product__item:hover {
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+.trend__item:hover {
+    box-shadow: 2px 2px 2px gray;
+}
+
+.product__item__pic:hover {
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+#loginpage {
+    box-shadow: 3px 3px 3px gray;
+}

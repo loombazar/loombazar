@@ -21,6 +21,10 @@ def reg_form(request):
 
         user = User.objects.create_user(gender_mark=gen_mark,full_name=name,email=email,password=password,mobile_number=mobile)
         user.save()
+        user = auth.authenticate(email=email,password=password)
+        if user is not None:
+            auth.login(request,user)
+            
         return redirect('/')
 
     else:

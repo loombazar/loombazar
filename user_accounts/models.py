@@ -5,6 +5,8 @@ from .managers import CLUserManager
 # Create your models here.
 
 class User(AbstractBaseUser,PermissionsMixin):
+    gender_mark = models.CharField(max_length=20,null=True,blank=True)
+    full_name = models.CharField(max_length=200,null=True,blank=True)
     first_name = models.CharField(max_length=100,null=False,blank=False)
     last_name = models.CharField(max_length=100,null=True,blank=True)
     mobile_number = models.CharField(max_length=20,null=False,blank=False)

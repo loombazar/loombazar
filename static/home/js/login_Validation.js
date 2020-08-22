@@ -1,4 +1,3 @@
-$('#myModal').modal('show');
 $(function() {
     $.validator.addMethod("pwcheck", function(value) {
         return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);

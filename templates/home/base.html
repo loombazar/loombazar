@@ -141,27 +141,22 @@
                             </li>
                             <li><a href="{% url 'contact_page' %}">Contact</a></li>
                             <li><a href="{% url 'contact_page' %}">About Us</a></li>
-                            {% if user.is_authenticated %}
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
-                            {% if user.first_name %}
-                            <li>{{user.first_name}} {{user.last_name}}</li>
-                            {% endif %} {% else %}
-                            <li><a href="#">Login</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% provider_login_url 'google' %}">G-login</a></li>
-                                </ul>
-                            </li>
-                            {% endif %}
-
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
+                        {% if user.is_authenticated %}
+                        <div class="header__right__auth">
+                            <a href="#">Profile</a><br>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </div>
+                        {% else %}
                         <div class="header__right__auth">
                             <a href="{% url 'login_page' %}">Login</a>
                             <a href="{% url 'login_page' %}">Register</a>
                         </div>
+                        {% endif %}
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="#"><span class="icon_heart_alt"></span>
@@ -272,7 +267,9 @@
     <!-- Search End -->
 
     <!-- Js Plugins -->
+
     <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
     <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
@@ -282,6 +279,7 @@
     <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'home/js/jquery.nicescroll.min.js' %}"></script>
     <script src="{% static 'home/js/main.js' %}"></script>
+    <script src="{% static 'home/js/login_Validation.js' %}"></script>
 
 
     {% block javascript %} {% endblock %}

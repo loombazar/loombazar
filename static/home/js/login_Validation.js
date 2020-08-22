@@ -10,9 +10,6 @@ $(function() {
 
 
 
-
-
-
     var loginform = $('#loginform');
 
     if (loginform.length) {

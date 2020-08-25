@@ -1,0 +1,57 @@
+.carousel-fade .carousel-item {
+	opacity: 0;
+	transition-duration: .10s;
+	transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+	opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
+}
+ #MagicCarousel a.carousel-control-prev,.carousel-control-next {
+  height: 15%;
+  top: 40%;
+  width: 20px;
+  background:white;
+  color: black;
+  border-radius: 50%;
+  
+ 
+  
+  }
+
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    
+    padding-bottom: 20px;
+  }
+  
+  .carousel-control-next-icon:after
+  {
+    content: '>';
+    font-size: 20px;
+    color:black
+  }
+  
+  .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 20px;
+    color:black;
+    padding-top: 1px;
+  }

@@ -1,5 +1,5 @@
 <!DOCTYPE html> {% load static %}{% load socialaccount %}
-<html lang="zxx">
+<html lang="">
 
 <head>
     <meta charset="UTF-8">
@@ -11,38 +11,36 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/mdb.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/jquery-ui.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'home/css/mystyle.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'home/css/b_shop-cart.css' %} " type="text/css">
+    <!-- <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="{% static 'home/css/mystyle.css' %}" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="{% static 'home/css/b_shop-cart.css' %} " type="text/css"> -->
+    <link rel="stylesheet" href="{% static 'home/css/searchstyle.css' %}" type="text/css">
 
 
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> {% block css %} {% endblock %}
+    {% block css %} {% endblock %}
 
 </head>
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
+    <!-- <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
@@ -62,127 +60,519 @@
             <a href="#">Login</a>
             <a href="#">Register</a>
         </div>
-    </div>
+    </div> -->
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="{% url 'index' %}"><img src="{% static 'home/img/logo.png' %}" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-7">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="#">Women’s</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Kurti</a></li>
-                                    <li><a href="{% url 'cart_page' %}">Gown</a></li>
-                                    <li><a href="./checkout.html">Top</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Saree</li>
 
-                                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Cotton</a></li>
-                                    <li><a href="./checkout.html" style="margin-left: 10px;">Pata (Silk)</a></li>
-                                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Tishu</a></li>
-                                    <li><a href="./checkout.html" style="margin-left: 10px;">Matha</a></li>
-                                    <li><a href="./checkout.html" style="margin-left: 10px;">Bapta</a></li>
+    <header class="navbar navbar-light">
+        <!-- left section for brand -->
+        <div class="navbar-brand ml-5">
+            <div class="navbar-text text-center">LOOM BAZAR</div>
+        </div>
+        <!-- middle section -->
 
-
-                                    <li class="dropdown-header">Jacket</li>
-                                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Long</a></li>
-                                    <li><a href="./checkout.html" style="margin-left: 10px;">Short</a></li>
-
-                                    <li><a href="{% url 'cart_page' %}">Lehenga</a></li>
-                                    <li><a href="./checkout.html">Skirt</a></li>
-                                    <li><a href="./checkout.html">Blouse</a></li>
-
-                                </ul>
-                            </li>
-                            <li><a href="#">Men’s</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Kurta</a></li>
-                                    <li><a href="{% url 'cart_page' %}">Duhti</a></li>
-                                    <li><a href="./checkout.html">Waistcoat</a></li>
-                                    <li><a href="./blog-details.html">Shirt</a></li>
-                                    <li><a href="./checkout.html">Gamuchha</a></li>
-                                    <li><a href="./blog-details.html">Lungi</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./shop.html">Kid's</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Boy's</a></li>
-                                    <li><a href="{% url 'cart_page' %}">Girl's</a></li>
+        <!-- middle  for menu -->
+        <div class="navbar-expand">
+            <ul class="navbar-nav text-center">
+                <!-- men section -->
+                <li class="nav-item mega-dropdown mx-4">
+                    <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Men
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <div class=" mega-menu dropdown-menu v-1 z-depth-1 white py-5 px-3"
+                        aria-labelledby="navbarDropdownMenuLink1">
+                        <div class="row">
+                            <div class="col-3">
+                                <ul class="nav flex-column nav-tabs" id="megamenutab" aria-orientation="vertical">
+                                    <li class="sub-title nav-item active" rel=".submenu_laptop">
+                                        <a class=" nav-link  text-uppercase">
+                                            Laptops
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_phone">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Phones
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_mobile">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Mobile
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_tablet">
+                                        <a class=" nav-link text-uppercase" href="">
+                                            Tablet
+                                        </a>
+                                    </li>
 
                                 </ul>
-                            </li>
-                            <li><a href="#">Home Decor</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Bedsheet</a></li>
-                                    <li><a href="{% url 'cart_page' %}">Window Screen</a></li>
-                                    <li><a href="./checkout.html">Pillow Cover</a></li>
-                                    <li><a href="./blog-details.html">Cousin Cover</a></li>
-                                    <li><a href="./blog-details.html">Door Screen</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Accessories</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Handkerchiefs</a></li>
-                                    <li><a href="{% url 'cart_page' %}">Dress Material</a></li>
-                                    <li><a href="./checkout.html">Stole</a></li>
-                                    <li><a href="./blog-details.html">Shawl</a></li>
-                                    <li><a href="./blog-details.html">Dupatta</a></li>
-                                    <li><a href="./blog-details.html">Scarf</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'contact_page' %}">Contact</a></li>
-                            <li><a href="{% url 'contact_page' %}">About Us</a></li>
-                            {% if user.is_authenticated %}
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
-                            {% if user.first_name %}
-                            <li>{{user.first_name}} {{user.last_name}}</li>
-                            {% endif %} {% else %}
-                            <li><a href="#">Login</a>
-                                <ul class="dropdown">
-                                    <li><a href="{% provider_login_url 'google' %}">G-login</a></li>
-                                </ul>
-                            </li>
-                            {% endif %}
+                            </div>
+                            <div class="col-4">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Design</h6>
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">product1</li>
+                                            <li class="list-group-item">product2</li>
+                                            <li class="list-group-item">product3</li>
+                                            <li class="list-group-item">product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">phone product1</li>
+                                            <li class="list-group-item">phone product2</li>
+                                            <li class="list-group-item">phone product3</li>
+                                            <li class="list-group-item">phone product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">mobile product1</li>
+                                            <li class="list-group-item">mobile product2</li>
+                                            <li class="list-group-item">mobile product3</li>
+                                            <li class="list-group-item">mobile product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">tablet product1</li>
+                                            <li class="list-group-item">tablet product2</li>
+                                            <li class="list-group-item">tablet product3</li>
+                                            <li class="list-group-item">tablet product4</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Featured</h6>
+                                <!--Featured image-->
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        img from phone
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        img from mobile
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        img from tablet
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
 
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="{% url 'login_page' %}">Login</a>
-                            <a href="{% url 'login_page' %}">Register</a>
+                                </div>
+
+
+                            </div>
                         </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="{% url 'cart_page' %}"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                        </ul>
                     </div>
+                </li>
+                <!-- Women section -->
+                <li class="nav-item mega-dropdown mx-4">
+                    <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Women
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <div class=" mega-menu dropdown-menu v-1 z-depth-1 white py-5 px-3"
+                        aria-labelledby="navbarDropdownMenuLink1">
+                        <div class="row">
+                            <div class="col-3">
+                                <ul class="nav flex-column nav-tabs" id="megamenutab" aria-orientation="vertical">
+                                    <li class="sub-title nav-item active" rel=".submenu_laptop">
+                                        <a class=" nav-link  text-uppercase">
+                                            Laptops
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_phone">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Phones
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_mobile">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Mobile
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_tablet">
+                                        <a class=" nav-link text-uppercase" href="">
+                                            Tablet
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Design</h6>
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">product1</li>
+                                            <li class="list-group-item">product2</li>
+                                            <li class="list-group-item">product3</li>
+                                            <li class="list-group-item">product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">phone product1</li>
+                                            <li class="list-group-item">phone product2</li>
+                                            <li class="list-group-item">phone product3</li>
+                                            <li class="list-group-item">phone product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">mobile product1</li>
+                                            <li class="list-group-item">mobile product2</li>
+                                            <li class="list-group-item">mobile product3</li>
+                                            <li class="list-group-item">mobile product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">tablet product1</li>
+                                            <li class="list-group-item">tablet product2</li>
+                                            <li class="list-group-item">tablet product3</li>
+                                            <li class="list-group-item">tablet product4</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Featured</h6>
+                                <!--Featured image-->
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        img from phone
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        img from mobile
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        img from tablet
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item mega-dropdown mx-4">
+                    <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kids
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <div class=" mega-menu dropdown-menu v-1 z-depth-1 white py-5 px-3"
+                        aria-labelledby="navbarDropdownMenuLink1">
+                        <div class="row">
+                            <div class="col-3">
+                                <ul class="nav flex-column nav-tabs" id="megamenutab" aria-orientation="vertical">
+                                    <li class="sub-title nav-item active" rel=".submenu_laptop">
+                                        <a class=" nav-link  text-uppercase">
+                                            Laptops
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_phone">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Phones
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_mobile">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Mobile
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_tablet">
+                                        <a class=" nav-link text-uppercase" href="">
+                                            Tablet
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Design</h6>
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">product1</li>
+                                            <li class="list-group-item">product2</li>
+                                            <li class="list-group-item">product3</li>
+                                            <li class="list-group-item">product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">phone product1</li>
+                                            <li class="list-group-item">phone product2</li>
+                                            <li class="list-group-item">phone product3</li>
+                                            <li class="list-group-item">phone product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">mobile product1</li>
+                                            <li class="list-group-item">mobile product2</li>
+                                            <li class="list-group-item">mobile product3</li>
+                                            <li class="list-group-item">mobile product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">tablet product1</li>
+                                            <li class="list-group-item">tablet product2</li>
+                                            <li class="list-group-item">tablet product3</li>
+                                            <li class="list-group-item">tablet product4</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Featured</h6>
+                                <!--Featured image-->
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        img from phone
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        img from mobile
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        img from tablet
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item mega-dropdown mx-4">
+                    <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HOME & LIVING
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <div class=" mega-menu dropdown-menu v-1 z-depth-1 white py-5 px-3"
+                        aria-labelledby="navbarDropdownMenuLink1">
+                        <div class="row">
+                            <div class="col-3">
+                                <ul class="nav flex-column nav-tabs" id="megamenutab" aria-orientation="vertical">
+                                    <li class="sub-title nav-item active" rel=".submenu_laptop">
+                                        <a class=" nav-link  text-uppercase">
+                                            Laptops
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_phone">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Phones
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_mobile">
+                                        <a class="nav-link text-uppercase" href="">
+                                            Mobile
+                                        </a>
+                                    </li>
+                                    <li class="sub-title nav-item" rel=".submenu_tablet">
+                                        <a class=" nav-link text-uppercase" href="">
+                                            Tablet
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Design</h6>
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">product1</li>
+                                            <li class="list-group-item">product2</li>
+                                            <li class="list-group-item">product3</li>
+                                            <li class="list-group-item">product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">phone product1</li>
+                                            <li class="list-group-item">phone product2</li>
+                                            <li class="list-group-item">phone product3</li>
+                                            <li class="list-group-item">phone product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">mobile product1</li>
+                                            <li class="list-group-item">mobile product2</li>
+                                            <li class="list-group-item">mobile product3</li>
+                                            <li class="list-group-item">mobile product4</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        <ul class="list-unstyled">
+                                            <li class="list-group-item">tablet product1</li>
+                                            <li class="list-group-item">tablet product2</li>
+                                            <li class="list-group-item">tablet product3</li>
+                                            <li class="list-group-item">tablet product4</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h6 class="sub-title pb-3 text-uppercase font-weight-bold">Featured</h6>
+                                <!--Featured image-->
+                                <div class="tab-content">
+                                    <div class="tab-pane submenu_laptop active" id="laptop">
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_phone fade" id="phone">
+                                        img from phone
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_mobile fade" id="mobile">
+                                        img from mobile
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane submenu_tablet  fade" id="tablet">
+                                        img from tablet
+                                        <a href="#!" class="view overlay z-depth-1 p-0 my-3">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg"
+                                                class="img-fluid" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- middle for search bar -->
+        <div class="">
+            <form class="" action="#">
+                <div class="search_box">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" class="" placeholder="What are you looking for?" autocomplete="off">
                 </div>
-            </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
+            </form>
+        </div>
+
+        <!-- right for cart and login -->
+        <div class="mx-3">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-center">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <div>Sign In</div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-center">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <div>Bag</div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </header>
+    <div class="container_shadow"> </div>
+
     <!-- Header Section End -->
 
 
-    {% block content %} {% endblock %}
+    {% block content %}
+    <div class="container py-4">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta est similique quas architecto doloribus,
+            harum mollitia tempora, possimus magni, odit totam tempore! Velit deserunt perferendis molestiae, magni
+            repudiandae assumenda quis?</p>
+
+    </div>
+    {% endblock %}
 
 
     <!-- Footer Section Begin -->
@@ -194,7 +584,8 @@
                         <div class="footer__logo">
                             <a href="{% url 'index' %}"><img src="{% static 'home/img/logo.png' %}" alt=""></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt cilisis.
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            cilisis.
                         </p>
                         <div class="footer__payment">
                             <a><img src="{% static 'home/img/payment/payment-1.png' %}" alt=""></a>
@@ -282,11 +673,21 @@
     <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'home/js/jquery.nicescroll.min.js' %}"></script>
     <script src="{% static 'home/js/main.js' %}"></script>
-    {% block javascript %} 
+    {% block javascript %}
     {% endblock %}
+    <script type="text/javascript">
+        // $('.dropdown-toggle').dropdown(); 
+        $('#megamenutab li').hover(function () {
+            console.log(this);
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active');
 
-    
 
+            $($(this).attr('rel')).removeClass('fade').addClass('active').siblings().addClass('fade').removeClass('active');
+
+
+        });
+    </script>
 </body>
 
 </html>

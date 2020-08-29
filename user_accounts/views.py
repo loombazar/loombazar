@@ -3,6 +3,8 @@ from django.contrib.auth.models import auth
 from .models import User
 from django.http import JsonResponse
 from django.contrib import messages
+from django.core.mail import send_mail
+from random import sample
 
 
 # Create your views here.
@@ -52,6 +54,26 @@ def login_page_email(request):
     email = request.GET.get('email',None)
     data = {
         'is_exist': User.objects.filter(email__iexact = email).exists()
+    }
+    return JsonResponse(data)
+
+def generate_otp():
+    list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','a','b','c','x','y','z','0','1','2','3','4','5','6','7','8','9']
+    otp = sample(list,4)
+    otp_str = ''.join(otp)
+    return otp_str
+
+def forget_sent_email(request):
+    email = request.GET.get('email',None)
+    print(email)
+    otp = generate_otp()
+    subject = 'LoomBazar Reset Password'
+    message = 'Your OTP to reset your password is : ' + str(otp)
+    sender = 'loombazar.official@gmail.com'
+    send_mail(subject,message,sender,[email],fail_silently=False)
+    
+    data = {
+        'otp': otp
     }
     return JsonResponse(data)
 

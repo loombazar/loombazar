@@ -1,4 +1,76 @@
-{% extends 'home/base.html' %}{% load static %} {% load socialaccount %} {% block css %}
+{% extends 'home/base.html' %} {% block nav_item %}
+<div class="col-xl-6 col-lg-7">
+    <nav class="header__menu">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="#">Women’s</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Kurti</a></li>
+                    <li><a href="{% url 'cart_page' %}">Gown</a></li>
+                    <li><a href="./checkout.html">Top</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Saree</li>
+
+                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Cotton</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Pata (Silk)</a></li>
+                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Tishu</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Matha</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Bapta</a></li>
+
+
+                    <li class="dropdown-header">Jacket</li>
+                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Long</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Short</a></li>
+
+                    <li><a href="{% url 'cart_page' %}">Lehenga</a></li>
+                    <li><a href="./checkout.html">Skirt</a></li>
+                    <li><a href="./checkout.html">Blouse</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Men’s</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Kurta</a></li>
+                    <li><a href="{% url 'cart_page' %}">Duhti</a></li>
+                    <li><a href="./checkout.html">Waistcoat</a></li>
+                    <li><a href="./blog-details.html">Shirt</a></li>
+                    <li><a href="./checkout.html">Gamuchha</a></li>
+                    <li><a href="./blog-details.html">Lungi</a></li>
+                </ul>
+            </li>
+            <li><a href="./shop.html">Kid's</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Boy's</a></li>
+                    <li><a href="{% url 'cart_page' %}">Girl's</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Home Decor</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Bedsheet</a></li>
+                    <li><a href="{% url 'cart_page' %}">Window Screen</a></li>
+                    <li><a href="./checkout.html">Pillow Cover</a></li>
+                    <li><a href="./blog-details.html">Cousin Cover</a></li>
+                    <li><a href="./blog-details.html">Door Screen</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Accessories</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Handkerchiefs</a></li>
+                    <li><a href="{% url 'cart_page' %}">Dress Material</a></li>
+                    <li><a href="./checkout.html">Stole</a></li>
+                    <li><a href="./blog-details.html">Shawl</a></li>
+                    <li><a href="./blog-details.html">Dupatta</a></li>
+                    <li><a href="./blog-details.html">Scarf</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'contact_page' %}">Contact</a></li>
+            <li><a href="{% url 'contact_page' %}">About Us</a></li>
+
+        </ul>
+    </nav>
+</div>
+{% endblock %} {% load static %} {% load socialaccount %} {% block css %}
 <link rel="stylesheet" href="{% static 'home/css/login.css' %} " type="text/css"> {% endblock %} {% block content %}
 <div class="logincontainer my-5" style="border: 2px solid brown;border-radius: 6px;" id="loginpage">
     <br>
@@ -186,35 +258,37 @@
             </div>
             <div class="modal-body">
 
-                <div id="email_sending">
-                    <form action="" method="POST">
-                        <div class="form-group">
-                            <label for="email" class="col-sm-6 control-label">
-                                Enter your registerd email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="forget_email" placeholder="Enter Email" name="forget_email" />
-                                <h6 id="forget_email_errmsg" style="margin-top: 4px;"></h6>
-                            </div>
-                        </div>
-                        <input type="submit" class="btn btn-info" name="otp" value="Send OTP">
-                    </form>
-                </div>
 
-                <div id="verify_otp">
-                    <form action="" method="POST">
+                <div id="email_sending" style="border: 3px solid tomato;padding:3px;border-radius:4px;box-shadow:8px 8px 8px gray;">
+
+                    <div class="form-group">
+                        <label for="email" class="col-sm-6 control-label">
+                                Enter your registerd email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="forget_email" placeholder="Enter Email" name="forget_email" required />
+                            <h6 id="forget_email_errmsg" style="margin-top: 4px;"></h6>
+                        </div>
+                    </div>
+                    <button class="btn btn-info" id="otp" value="Send OTP">Send OTP</button>
+
+                </div>
+                <h6 id="email_send_msg" style="text-align: center;color:green;margin-top:2px;"></h6>
+                <br>
+                <div id="verify_otp" style="pointer-events: none;opacity: 0.3;border: 2px solid tomato;padding:3px;border-radius:4px;box-shadow:4px 4px 4px gray;">
+                    <form method="POST">
                         <div class="form-group">
                             <label for="otp" class="col-sm-8 control-label">
                                 Enter the OTP from your Email </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="verify_otp_txt" placeholder="Enter OTP" name="verify_otp_txt" />
+                                <input type="text" class="form-control" id="verify_otp_txt" placeholder="Enter OTP" name="verify_otp_txt" required />
                                 <h6 id="verify_otp_errmsg" style="margin-top: 4px;"></h6>
                             </div>
                         </div>
                         <input type="submit" class="btn btn-warning" name="verify" value="Verify OTP">
                     </form>
                 </div>
-
-                <div id="new_password">
+                <br>
+                <div id="new_password" style="pointer-events: none;opacity: 0.3;border: 2px solid tomato;padding:3px;border-radius:4px;box-shadow:4px 4px 4px gray;">
                     <form action="" method="POST">
                         <div class="form-group">
                             <label for="otp" class="col-sm-6 control-label">
@@ -327,6 +401,54 @@
         }
     }
 </script>
+
+<script>
+    var is_exist_email = false;
+    $('#forget_email').change(function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '{% url "login_page_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_exist) {
+                    is_exist_email = true;
+                    document.getElementById('otp').disabled = false;
+                    document.getElementById('forget_email_errmsg').style.color = 'green';
+                    document.getElementById('forget_email_errmsg').textContent = "Account exist";
+                } else {
+                    is_exist_email = false;
+                    document.getElementById('otp').disabled = true;
+                    document.getElementById('forget_email_errmsg').style.color = 'red';
+                    document.getElementById('forget_email_errmsg').textContent = "Account with this email Doesn't exist";
+                }
+            }
+        })
+    });
+
+    const forget_email_send = document.getElementById('otp');
+    forget_email_send.onclick = function(e) {
+        var email = document.getElementById('forget_email').value;
+        $.ajax({
+            url: "{% url 'forget_sent_email' %}",
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+
+                document.getElementById('email_send_msg').textContent = "Email send successfully to " + email;
+                document.getElementById('email_sending').setAttribute("pointer-events", "none");
+                document.getElementById('email_sending').style.opacity = 0.3;
+                document.getElementById('verify_otp').setAttribute("pointer-events", "auto");
+            }
+        })
+    }
+</script>
+
+
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

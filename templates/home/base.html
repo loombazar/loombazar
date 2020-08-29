@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+
+
     <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
@@ -23,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/mystyle.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'home/css/b_shop-cart.css' %} " type="text/css">
+
 
 
 
@@ -31,6 +33,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> {% block css %} {% endblock %}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
 
 </head>
 
@@ -53,7 +59,7 @@
                 <div class="tip">2</div>
             </a></li>
             <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
+                <div class="tip" id="cart_icon">0</div>
             </a></li>
         </ul>
         <div class="offcanvas__logo">
@@ -67,8 +73,8 @@
         </div>
         {% else %}
         <div class="offcanvas__auth">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="{% url 'login_page' %}">Login</a>
+            <a href="{% url 'login_page' %}">Register</a>
         </div>
         {% endif %}
     </div>
@@ -92,7 +98,7 @@
                             <li class="active"><a href="{% url 'index' %}">Home</a></li>
                             <li><a href="#">Women’s</a>
                                 <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Kurti</a></li>
+                                    <li><a href="#">Kurti</a></li>
                                     <li><a href="{% url 'cart_page' %}">Gown</a></li>
                                     <li><a href="./checkout.html">Top</a></li>
                                     <li class="divider"></li>
@@ -117,7 +123,7 @@
                             </li>
                             <li><a href="#">Men’s</a>
                                 <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Kurta</a></li>
+                                    <li><a href="#">Kurta</a></li>
                                     <li><a href="{% url 'cart_page' %}">Duhti</a></li>
                                     <li><a href="./checkout.html">Waistcoat</a></li>
                                     <li><a href="./blog-details.html">Shirt</a></li>
@@ -127,14 +133,14 @@
                             </li>
                             <li><a href="./shop.html">Kid's</a>
                                 <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Boy's</a></li>
+                                    <li><a href="#">Boy's</a></li>
                                     <li><a href="{% url 'cart_page' %}">Girl's</a></li>
 
                                 </ul>
                             </li>
                             <li><a href="#">Home Decor</a>
                                 <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Bedsheet</a></li>
+                                    <li><a href="#">Bedsheet</a></li>
                                     <li><a href="{% url 'cart_page' %}">Window Screen</a></li>
                                     <li><a href="./checkout.html">Pillow Cover</a></li>
                                     <li><a href="./blog-details.html">Cousin Cover</a></li>
@@ -143,7 +149,7 @@
                             </li>
                             <li><a href="#">Accessories</a>
                                 <ul class="dropdown">
-                                    <li><a href="{% url 'product_details' %}">Handkerchiefs</a></li>
+                                    <li><a href="#">Handkerchiefs</a></li>
                                     <li><a href="{% url 'cart_page' %}">Dress Material</a></li>
                                     <li><a href="./checkout.html">Stole</a></li>
                                     <li><a href="./blog-details.html">Shawl</a></li>
@@ -153,6 +159,7 @@
                             </li>
                             <li><a href="{% url 'contact_page' %}">Contact</a></li>
                             <li><a href="{% url 'contact_page' %}">About Us</a></li>
+
                         </ul>
                     </nav>
                 </div>
@@ -174,8 +181,8 @@
                             <li><a href="#"><span class="icon_heart_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>
-                            <li><a href="{% url 'cart_page' %}"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
+                            <li><a data-toggle="modal" data-target="#cart_modal"><span class="icon_bag_alt"></span>
+                                <div class="tip" id="cart_icon1">0</div>
                             </a></li>
                         </ul>
                     </div>
@@ -187,9 +194,36 @@
         </div>
     </header>
     <!-- Header Section End -->
+    <!--cart modal-->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="cart_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Your Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body ">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     {% block content %} {% endblock %}
+
+
 
 
     <!-- Footer Section Begin -->
@@ -292,6 +326,21 @@
     <script src="{% static 'home/js/jquery.nicescroll.min.js' %}"></script>
     <script src="{% static 'home/js/main.js' %}"></script>
 
+
+
+    <script>
+        if (localStorage.getItem('cart1') == null) {
+            cart1 = {};
+        } else {
+            cart1 = JSON.parse(localStorage.getItem('cart1'));
+
+
+        }
+        var cartlen = Object.keys(cart1).length;
+        console.log(cartlen);
+        document.getElementById("cart_icon").innerHTML = cartlen;
+        document.getElementById("cart_icon1").innerHTML = cartlen;
+    </script>
 
 
     {% block javascript %} {% endblock %}

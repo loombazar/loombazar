@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'home/base.html' %} {% block nav_item %}
 <div class="col-xl-6 col-lg-7">
     <nav class="header__menu">
@@ -10,6 +11,10 @@
                     <li><a href="./checkout.html">Top</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Saree</li>
+=======
+{% extends 'home/base.html'%} {% block content %}{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/login.css' %} " type="text/css"> {% endblock %}
+>>>>>>> e3e21b60dcbb54d177164adc55523fbc160f9fc3
 
                     <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Cotton</a></li>
                     <li><a href="./checkout.html" style="margin-left: 10px;">Pata (Silk)</a></li>
@@ -103,7 +108,7 @@
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Email <span>*<span></label>
+                                        Email<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="email1" placeholder="Enter Email" name="email" />
                                         <h6 id="login_email_errmsg" style="margin-top: 4px;"></h6>
@@ -113,7 +118,15 @@
                                     <label for="exampleInputPassword1" class="col-sm-2 control-label">
                                         Password<span>*<span></label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter Password" />
+                                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter Password" value="">
+                                        
+                                    </input>
+                                    <i toggle="#exampleInputPassword1" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                    margin-left: -30px;
+                                    margin-top: -25px;
+                                    position: relative;
+                                    z-index: 2;"></i>
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -122,7 +135,11 @@
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             Submit</button>
+<<<<<<< HEAD
                                         <a data-toggle="modal" data-target="#forget_password">Forgot your password ?</a>
+=======
+                                        <a href="#exampleModal" data-target="#exampleModal" data-toggle="modal">Forgot your password?</a>
+>>>>>>> e3e21b60dcbb54d177164adc55523fbc160f9fc3
                                     </div>
                                 </div>
                             </form>
@@ -157,7 +174,7 @@
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Name <span>*<span></label>
+                                        Name<span>*<span></label>
                                     <div class="col-sm-10">
                                         <div class="row">
                                             <div class="col-md-3">
@@ -175,7 +192,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Email <span>*<span></label>
+                                        Email<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" />
                                         <h6 id="reg_email_errmsg" style="margin-top: 4px;"></h6>
@@ -183,7 +200,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile" class="col-sm-2 control-label">
-                                        Mobile <span>*<span></label>
+                                        Mobile<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile" name="mobile" />
                                     </div>
@@ -193,14 +210,23 @@
                                         Password<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" />
+                                        <i toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                    margin-left: -30px;
+                                    margin-top: -25px;
+                                    position: relative;
+                                    z-index: 2;"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="confirmpassword" class="col-sm-2 control-label">
-                                        Confirm
-                                        Password<span>*<span></label>
+                                        ConfirmPassword<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="confirmpassword" placeholder="Enter Confirm Password" name="confirmpassword" />
+                                        <i toggle="#confirmpassword" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                    margin-left: -30px;
+                                    margin-top: -25px;
+                                    position: relative;
+                                    z-index: 2;"></i>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -241,6 +267,7 @@
     </div>
     <br>
 </div>
+<<<<<<< HEAD
 
 
 <!-- Forget Password -->
@@ -453,3 +480,142 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 {% endblock %}
+=======
+<!-- Forgot Password Page Degin -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Recover Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                 <form method="post" id="Forgot-Password-Form" role="form" action="#">
+                
+              <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-envelope"></i>
+                     </span>
+                </div>
+                  
+                 
+                    
+                
+                      <input type="email" class="form-control" placeholder="Enter Email" name="email"/>
+                    
+                    
+                      
+            </div>     
+              <br/>
+              <button type="submit" class="btn btn-success" id="modal1">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                 SUBMIT
+              </button>
+               <button type="button" class="btn btn-primary" data-target="#exampleModal1" data-toggle="modal" data-dismiss="modal">
+               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                 Next
+              </button>
+            </form>
+          
+        </div>
+        <div class="modal-footer">
+           <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- OTP Submit start Page -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">OTP Verfied</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <form method="post" id="Forgot-Password-Otp" role="form" action="#">  
+              <div class="input-group">
+              <div class="input-group-prepend">
+                   <span class="input-group-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+               </div>
+                                 
+                    
+                      <input type="text" class="form-control" placeholder="Enter OTP" name="otp">
+                    
+            </div>     
+              <br/>
+              <button type="submit" class="btn btn-success">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                SUBMIT
+              </button>
+               <button type="button" class="btn btn-primary" data-target="#exampleModal3" data-toggle="modal" data-dismiss="modal">
+               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                 Next
+              </button>
+            </form>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- OTP Submit End Page -->
+  <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Password Generate</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <form method="post" id="Forgot-Password-Update" role="form" action="#">  
+              <div class="input-group">
+              <div class="input-group-prepend">
+                   <span class="input-group-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+               </div>
+                  
+               <input type="password" id="password1" class="form-control" placeholder="Enter Password" name="password" >
+              
+              </div>    
+              <br/>
+              <div class="input-group">
+              <div class="input-group-prepend">
+                   <span class="input-group-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+               </div>
+                  
+               <input type="password" class="form-control" id="confirmpassword" placeholder="Enter Confirm  Password" name="confirmpassword" >
+             
+              </div>  
+              <br/>
+  
+              <button type="submit" class="btn btn-success">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                SUBMIT
+              </button>
+               
+            </form>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<!-- End forgot Password Design -->
+{% block javascript %}
+
+<script src="{% static 'home/js/login_validation.js' %}"></script>
+{% endblock %} {% endblock %}
+>>>>>>> e3e21b60dcbb54d177164adc55523fbc160f9fc3

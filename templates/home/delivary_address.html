@@ -1,0 +1,220 @@
+{% extends 'home/base.html'%} {% block content %}{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/delivary_address.css' %} " type="text/css"> {% endblock %}
+
+<div class="container">
+    <!-- Customer Account Page Start  -->
+      <div class="delivary_address mt-3">
+           <div class="page-title">
+                  <h3>Delivary Address</h3>
+
+           </div>
+            <div class="row">
+                 <div class="col-md-5 col-12 d-none d-sm-block">
+                   <div class="my-profile">
+                       <div class="row">
+                          <div class="col-xs-2">
+                               <img src="static/home/img/profile/download.png" alt="no-photo" class="user-profile-img">
+
+                          </div>
+                          <div class="col-xs-8">
+                               <div class="customerfullname">
+                                    <h3>Bachan Ghatuary</h3>
+                                  <h6>ghatuarybachan@gmail.com</h6>
+                                  <h6>+91-9040444389</h6>
+
+                               </div>
+                              
+                          </div>
+                          
+                       </div>
+                        
+                            
+                    </div>
+                    
+
+               </div> 
+             <div class="col-md-7 col-12">
+                    <div class="myaccountdetalis d-none d-sm-block">
+                          <div class="row">
+                                 <div class="col-md-6 text-center">
+                                   <a href="{% url 'payment_method' %}" class="payment-order-img">
+                                       <i class="fa fa-credit-card fa-3x"></i>
+                                      
+                                   </a><br/>
+                                   <a href="{% url 'payment_method' %}" class="payment-order-text">
+                                      Payment Methods
+                                   </a>
+
+
+                                 </div>
+                                 <div class="col-md-6 text-center">
+                                   <a href="{% url 'order_history' %}" class=" payment-order-img">
+                                       <i class="fa fa-shopping-bag fa-3x"></i>
+                                      
+                                   </a><br/>
+                                   <a href="{% url 'order_history' %}" class="payment-order-text">
+                                       Order Histrory
+                                   </a>
+                                     
+                               </div>
+                                
+                              
+                          </div>
+
+
+                    </div>
+
+             </div>   
+             
+             
+       </div>
+                            
+          
+    </div>
+
+
+    <!--Customer Account Information Page End -->
+
+    <!-- Common Part Start Profile Page -->
+
+      <div class="row">
+                <div class="col-md-5 col-12 d-none d-sm-block">
+                    <div class="customlink">
+                        <div class="linkcontrol">
+                            <a href="{% url 'wishlist' %}">
+                                <i class="fa fa-heart"></i>
+                                <span class="icon">WishList</span>
+                            </a>
+                            <a href="{% url 'legal_information' %}">
+                                <i class="fa fa-gavel"></i>
+                                <span class="icon ">Legal Information</span>
+                            </a>
+                            <a href="{% url 'faqs' %}">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="icon ">FAQ's</span>
+                            </a>
+                            <a href="{% url 'contact_us' %}">
+                                <i class="fa fa-phone"></i>
+                                <span class="icon ">Contact Us</span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-sign-out"></i>
+                                <span class="icon ">Logout</span>
+                            </a>
+                           
+                    
+
+                        </div>
+                         
+
+                    </div>
+
+                </div>
+                <div class="col-md-7 col-12 ">
+                    <div class="address-detalis">
+                        <h6>DELIVERY ADDRESS</h6>
+                        <div class="row">
+                              <div class="col-md-6">
+                                  <a href="#fullHeightModalRight" data-target="#fullHeightModalRight" data-toggle="modal" class="add-address">+Add New Address</a>
+
+                              </div>
+                              <div class="col-md-6">
+                                  
+                             </div>
+
+                        </div>
+                       
+
+                    </div>
+                      
+
+                </div>
+      </div>
+
+    <!-- Common Part Start Profile Page -->
+            
+
+</div>
+
+
+
+<!-- Modal Add new Address -->
+<!-- Full Height Modal Right -->
+<div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+
+<!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+<div class="modal-dialog modal-full-height modal-right" role="document">
+
+
+<div class="modal-content">
+<div class="modal-header">
+ <h4 class="modal-title w-100" id="myModalLabel">Add Address</h4>
+ <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+ </button>
+</div>
+<div class="modal-body">
+   <form action="">
+       <div class="form-group input-group">
+           
+           <input name="" class="form-control" placeholder="Pin Code" type="text">
+       </div> <!-- form-group// -->
+       <div class="form-group input-group">
+           
+           <input name="" class="form-control" placeholder="District" type="text">
+       </div> <!-- form-group// -->
+       <div class="form-group input-group">
+           
+           <input name="" class="form-control" placeholder="State" type="text">
+       </div> <!-- form-group// -->
+      
+      
+      
+       <div class="form-group input-group">
+          
+           <input name="" class="form-control" placeholder="Full Name" type="text">
+       </div> <!-- form-group// -->
+       <div class="form-group input-group">
+          
+           <input name="" class="form-control" placeholder="Address" type="text">
+       </div> <!-- form-group// -->
+       <div class="form-group input-group">
+          
+           <input name="" class="form-control" placeholder="LandMark" type="text">
+       </div> <!-- form-group// -->
+       <div class="form-group input-group">
+           <div class="input-group-prepend">
+               <span class="input-group-text">+91</span>
+            </div>
+           
+           <input name="" class="form-control" placeholder="Phone Number" type="text">
+       </div> <!-- form-group// -->
+           
+
+   </form>
+   <div class="modal-footer justify-content-center">
+
+       <button type="button" class="btn btn-primary">Save Address</button>
+     </div>
+
+</div>
+
+</div>
+</div>
+</div>
+<!-- Full Height Modal Right -->
+
+
+
+
+
+
+<!-- end Modal Add new Address -->
+
+
+
+{% block javascript %}
+
+
+{% endblock %} {% endblock %}

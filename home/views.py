@@ -19,3 +19,22 @@ def checkout_page(request):
 
 def login_page(request):
     return render(request,'home/login.html')
+def profile_page(request):
+    return render(request,'home/user_profile.html')
+def order_history(request):
+    return render(request,'home/order_history.html')
+def payment_method(request):
+    return render(request,'home/payment_method.html')
+def delivary_address(request):
+    return render(request,'home/delivary_address.html')
+def faqs(request):
+    return render(request,'home/faqs.html')
+def contact_us(request):
+    return render(request,'home/contact_us.html')
+def legal_information(request):
+    return render(request,'home/legal_information.html')
+def wishlist(request):
+    return render(request,'home/wishlist.html')
+
+
+

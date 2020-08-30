@@ -15,10 +15,7 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
-     <!-- Bootstrap core CSS -->
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-     <!-- Material Design Bootstrap -->
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> {% block css %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'home/css/mdb.min.css' %}" type="text/css">   
     <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/jquery-ui.min.css' %}" type="text/css">
@@ -28,8 +25,8 @@
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/mystyle.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/b_shop-cart.css' %} " type="text/css">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    {% block css %} {% endblock %}
 
 
    
@@ -165,7 +162,7 @@
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
+                            <li><a href="{% url 'profile_page' %}"><span class="icon_heart_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>
                             <li><a href="{% url 'cart_page' %}"><span class="icon_bag_alt"></span>
@@ -276,6 +273,8 @@
     <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
     <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/mdb.min.js' %}"></script>
+
     <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'home/js/mixitup.min.js' %}"></script>
@@ -284,6 +283,7 @@
     <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'home/js/jquery.nicescroll.min.js' %}"></script>
     <script src="{% static 'home/js/main.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     
 
 

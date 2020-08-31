@@ -1,9 +1,5 @@
-{% extends 'home/base.html' %}{% load static %} 
-{% block css %}
-<link rel="stylesheet" href="{% static 'home/css/login.css' %} " type="text/css">
-{% endblock %}
-
-{% block content %}
+ {% extends 'home/base.html' %} {% load static %} {% load socialaccount %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/login.css' %} " type="text/css"> {% endblock %} {% block content %}
 <div class="logincontainer my-5" style="border: 2px solid brown;border-radius: 6px;" id="loginpage">
     <br>
     <h4 style="font-weight: bold;text-align:center;color:dodgerblue;">
@@ -20,23 +16,40 @@
 
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <br> {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button> {{ message }}
+            </div>
+            {% endfor %}
             <div class="row">
                 <div class="col-md-8 ">
                     <div class="mycontent-left">
                         <div class="tab-pane active" id="Login">
-                            <form role="form" class="form-horizontal" id="loginform">
+                            <form role="form" class="form-horizontal" id="loginform" name="login_form" method="POST" action="{% url 'login' %}">
+                                {% csrf_token %}
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Email <span>*<span></label>
+                                        Email<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="email1" placeholder="Enter Email" name="email" />
+                                        <h6 id="login_email_errmsg" style="margin-top: 4px;"></h6>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1" class="col-sm-2 control-label">
                                         Password<span>*<span></label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter Password" />
+                                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter Password" value="">
+
+                                        </input>
+                                        <i toggle="#exampleInputPassword1" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                    margin-left: -30px;
+                                    margin-top: -25px;
+                                    position: relative;
+                                    z-index: 2;"></i>
+
                                     </div>
                                 </div>
                                 <div class="row">
@@ -45,7 +58,7 @@
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             Submit</button>
-                                        <a href="javascript:;">Forgot your password?</a>
+                                        <a href="#exampleModal" data-target="#exampleModal" data-toggle="modal">Forgot your password?</a>
                                     </div>
                                 </div>
                             </form>
@@ -60,7 +73,7 @@
                         </h3>
                         <div class="btn-group-sm">
                             <a href="#" class="btn btn-primary ">Facebook</a>
-                            <a href="#" class="btn btn-danger ">Google</a>
+                            <a href="{% provider_login_url 'google' %}" class="btn btn-danger ">Google</a>
                         </div>
                     </div>
 
@@ -68,19 +81,23 @@
 
             </div>
         </div>
+
+
+
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             <div class="row  no-gutters">
                 <div class="col-md-8 col-sm-8">
                     <div class="mycontent-left">
                         <div class="tab-pane" id="Registration">
-                            <form role="form" class="form-horizontal " id="registerform">
+                            <form role="form" class="form-horizontal " id="registerform" method="POST" action="{% url 'reg_form' %}">
+                                {% csrf_token %}
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Name <span>*<span></label>
+                                        Name<span>*<span></label>
                                     <div class="col-sm-10">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <select class="form-control">
+                                                <select class="form-control" name="gender_mark" required>
                                                     <option>Mr.</option>
                                                     <option>Ms.</option>
                                                     <option>Mrs.</option>
@@ -94,14 +111,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Email <span>*<span></label>
+                                        Email<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" />
+                                        <h6 id="reg_email_errmsg" style="margin-top: 4px;"></h6>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile" class="col-sm-2 control-label">
-                                        Mobile <span>*<span></label>
+                                        Mobile<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile" name="mobile" />
                                     </div>
@@ -111,14 +129,23 @@
                                         Password<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" />
+                                        <i toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                    margin-left: -30px;
+                                    margin-top: -25px;
+                                    position: relative;
+                                    z-index: 2;"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="confirmpassword" class="col-sm-2 control-label">
-                                        Confirm
-                                        Password<span>*<span></label>
+                                        ConfirmPassword<span>*<span></label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="confirmpassword" placeholder="Enter Confirm Password" name="confirmpassword" />
+                                        <i toggle="#confirmpassword" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                    margin-left: -30px;
+                                    margin-top: -25px;
+                                    position: relative;
+                                    z-index: 2;"></i>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -127,7 +154,7 @@
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             Save & Continue</button>
-                                        <button type="button" class="btn btn-default btn-sm">
+                                        <button type="reset" class="btn btn-default btn-sm">
                                             Cancel</button>
                                     </div>
                                 </div>
@@ -147,7 +174,7 @@
                         </h3>
                         <div class="btn-group-sm">
                             <a href="#" class="btn btn-primary ">Facebook</a>
-                            <a href="#" class="btn btn-danger ">Google</a>
+                            <a href="{% provider_login_url 'google' %}" class="btn btn-danger ">Google</a>
                         </div>
                     </div>
                 </div>
@@ -159,9 +186,405 @@
     </div>
     <br>
 </div>
+<<<<<<< HEAD
 {% endblock %}
 
 {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="{% static 'home/js/login_validation.js' %}"></script>
 {% endblock %} 
+=======
+
+
+
+<!-- Forget Password -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="forget_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight: bold;">Reset your password here ...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+
+
+                <div id="email_sending" style="border: 3px solid tomato;padding:3px;border-radius:4px;box-shadow:8px 8px 8px gray;">
+
+                    <div class="form-group">
+                        <label for="email" class="col-sm-6 control-label">
+                                Enter your registerd email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="forget_emaill" placeholder="Enter Email" name="forget_email" required />
+                            <h6 id="forget_email_errmsgg" style="margin-top: 4px;"></h6>
+                        </div>
+                    </div>
+                    <button class="btn btn-info" id="otp1" value="Send OTP">Send OTP</button>
+
+                </div>
+                <h6 id="email_send_msgg" style="text-align: center;color:green;margin-top:2px;"></h6>
+                <br>
+                <div id="verify_otp" style="pointer-events: none;opacity: 0.3;border: 2px solid tomato;padding:3px;border-radius:4px;box-shadow:4px 4px 4px gray;">
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="otp" class="col-sm-8 control-label">
+                                Enter the OTP from your Email </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="verify_otp_txt" placeholder="Enter OTP" name="verify_otp_txt" required />
+                                <h6 id="verify_otp_errmsg" style="margin-top: 4px;"></h6>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-warning" name="verify" value="Verify OTP">
+                    </form>
+                </div>
+                <br>
+                <div id="new_password" style="pointer-events: none;opacity: 0.3;border: 2px solid tomato;padding:3px;border-radius:4px;box-shadow:4px 4px 4px gray;">
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="otp" class="col-sm-6 control-label">
+                                Enter your new password </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="new_password_txt" placeholder="Ente New Password" name="new_password_txt" />
+                                <h6 id="new_password_errmsg" style="margin-top: 4px;"></h6>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="otp" class="col-sm-6 control-label">
+                                Enter your password again </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="confirm_password_txt" placeholder="Enter New Password Again" name="confirm_password_txt" />
+                                <h6 id="confirm_password_errmsg" style="margin-top: 4px;"></h6>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-success" name="set_password" value="Set Password">
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Bachan-->
+
+<!-- Forgot Password Page Degin -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Recover Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="Forgot-Password-Form" role="form" action="#">
+                    {% csrf_token %}
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                        <i class="fa fa-envelope"></i>
+                     </span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Enter Email" name="email" id="forget_email" />
+                        <label for="forget_email" id="forget_email-error" style="width: 100%;"></label>
+
+                    </div>
+                    <h6 id="forget_email_errmsg" style="margin-top: 4px;"></h6>
+                    <br/>
+                    <!--<button type="button" class="btn btn-success" id="otp">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                 Send OTP
+              </button>-->
+                    <button type="button" class="btn btn-primary" data-target="#exampleModal1" data-toggle="modal" data-dismiss="modal" id="otp">
+               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+               Send OTP
+              </button>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- OTP Submit start Page -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">OTP Verfication</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="Forgot-Password-Otp" role="form" action="#">
+                    <h6 style="color:green;margin-top:2px;margin-bottom:2px;" id="email_send_msg"></h6>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+                        </div>
+
+
+                        <input type="text" class="form-control" placeholder="Enter OTP" name="otp" id="user_otp">
+
+                    </div>
+                    <h6 id="otp_verify_msg" style="margin-top: 2px;"></h6>
+                    <br/>
+                    <!--<button type="submit" class="btn btn-success">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                SUBMIT
+              </button>-->
+                    <button type="button" class="btn btn-primary" data-target="#exampleModal3" data-toggle="modal" data-dismiss="modal" id="verify_user_otp">
+               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                 Verify
+              </button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- OTP Submit End Page -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Generate Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="Forgot-Password-Update" role="form" action="{% url 'reset_password' %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+                        </div>
+
+                        <input type="password" id="password1" class="form-control" placeholder="Enter Password" name="password">
+
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+                        </div>
+
+                        <input type="password" class="form-control" id="confirm_password" placeholder="Enter Confirm Password" name="confirmpassword">
+
+                    </div>
+                    <input type="hidden" name="user_email" value="email" id="hidden_email_input">
+                    <h6 id="pwd_save_msg"></h6>
+                    <br/>
+
+                    <button type="submit" class="btn btn-success" id="btn_pwd_save">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                SAVE
+              </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End forgot Password Design -->
+
+
+
+
+{% endblock %} {% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+<script src="{% static 'home/js/login_Validation.js' %}"></script>
+<script>
+    var is_exist_email = false;
+    $('#email1').change(function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '{% url "login_page_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_exist) {
+                    is_exist_email = true;
+                    document.getElementById('login_email_errmsg').style.color = 'green';
+                    document.getElementById('login_email_errmsg').textContent = "Account exist";
+                } else {
+                    is_exist_email = false;
+                    document.getElementById('login_email_errmsg').style.color = 'red';
+                    document.getElementById('login_email_errmsg').textContent = "Account with this email Doesn't exist";
+                }
+            }
+        })
+    });
+
+    const login_form = document.getElementsByTagName('form')[0];
+    login_form.onsubmit = function(e) {
+        if (is_exist_email) {
+
+
+        } else {
+            e.preventDefault();
+            document.getElementById('login_email_errmsg').style.color = 'red';
+            document.getElementById('login_email_errmsg').textContent = "Account with this email Doesn't exist";
+        }
+    }
+</script>
+<script>
+    var is_exist_email = false;
+    $('#email').change(function() {
+
+        var email = $(this).val();
+        $.ajax({
+            url: '{% url "login_page_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_exist) {
+                    is_exist_email = true;
+                    document.getElementById('reg_email_errmsg').style.color = 'red';
+                    document.getElementById('reg_email_errmsg').textContent = "Already an account exist with this email !";
+                } else {
+                    is_exist_email = false;
+                    document.getElementById('reg_email_errmsg').textContent = " ";
+
+                }
+            }
+        })
+    });
+
+    const reg_form = document.getElementsByTagName('form')[1];
+    reg_form.onsubmit = function(e) {
+        if (is_exist_email) {
+            e.preventDefault();
+            document.getElementById('reg_email_errmsg').style.color = 'red';
+            document.getElementById('reg_email_errmsg').textContent = "Already an account exist with this email !";
+        } else {
+            document.getElementById('reg_email_errmsg').textContent = " ";
+        }
+    }
+</script>
+
+<script>
+    document.getElementById('otp').disabled = true;
+    var is_exist_email = false;
+    $('#forget_email').keyup(function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '{% url "login_page_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_exist) {
+                    is_exist_email = true;
+                    document.getElementById('otp').disabled = false;
+                    document.getElementById('forget_email_errmsg').style.color = 'green';
+                    document.getElementById('forget_email_errmsg').textContent = "Account exist";
+                } else {
+                    is_exist_email = false;
+                    document.getElementById('otp').disabled = true;
+                    document.getElementById('forget_email_errmsg').style.color = 'red';
+                    document.getElementById('forget_email_errmsg').textContent = "Account with this email Doesn't exist";
+                }
+            }
+        })
+    });
+    var send_otp = '';
+    const forget_email_send = document.getElementById('otp');
+    var email;
+    forget_email_send.onclick = function(e) {
+        if (is_exist_email) {
+            email = document.getElementById('forget_email').value;
+
+            $.ajax({
+                url: "{% url 'forget_sent_email' %}",
+                data: {
+                    'email': email,
+                    'sent': 'True',
+                },
+                dataType: 'json',
+                success: function(data) {
+                    send_otp = data.otp;
+                    document.getElementById('email_send_msg').textContent = "OTP send successfully to " + email;
+
+                }
+            })
+        }
+
+    }
+
+    const verify_user_otp = document.getElementById('verify_user_otp');
+    user_otp = document.getElementById('user_otp');
+    verify_user_otp.disabled = true;
+    $('#user_otp').keyup(function() {
+        var user_otp = document.getElementById('user_otp').value;
+        $.ajax({
+            url: "{% url 'forget_sent_email' %}",
+            data: {
+                'user_otp': user_otp,
+                'sent': 'False',
+                'send_otp': send_otp,
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.match == 'True') {
+                    document.getElementById('otp_verify_msg').style.color = 'green';
+                    document.getElementById('otp_verify_msg').innerHTML = 'OTP Verified';
+                    verify_user_otp.disabled = false;
+                } else {
+                    document.getElementById('otp_verify_msg').style.color = 'red';
+                    document.getElementById('otp_verify_msg').innerHTML = 'Wrong OTP';
+                    verify_user_otp.disabled = true;
+                }
+
+            }
+        })
+    });
+
+    var pass1 = document.getElementById('password1').value;
+    var pass2 = document.getElementById('confirm_password').value;
+    var btn_pwd_save = document.getElementById('btn_pwd_save');
+    var pwd_save_msg = document.getElementById('pwd_save_msg');
+
+
+    btn_pwd_save.onclick = function() {
+        document.getElementById('hidden_email_input').value = email;
+
+    }
+</script>
+
+
+
+
+
+{% endblock %}
+>>>>>>> 39a72de21b0eb6a6954c97ce16834b230c59830d

@@ -15,6 +15,8 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
+
+
     <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/mdb.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
@@ -705,6 +707,31 @@
     <div class="container_shadow"> </div>
 
     <!-- Header Section End -->
+    <!--cart modal-->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="cart_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Your Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body ">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     {% block content %}
@@ -803,6 +830,8 @@
     {% endblock %}
 
 
+
+
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
@@ -880,7 +909,9 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+
     <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
     <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>

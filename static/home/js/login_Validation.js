@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> e3e21b60dcbb54d177164adc55523fbc160f9fc3
 $(function() {
     $.validator.addMethod("pwcheck", function(value) {
         return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);
@@ -17,12 +13,9 @@ $(function() {
 
 
 
-<<<<<<< HEAD
-=======
 
-// Login form Validation
+    // Login form Validation
 
->>>>>>> e3e21b60dcbb54d177164adc55523fbc160f9fc3
     var loginform = $('#loginform');
 
     if (loginform.length) {
@@ -30,7 +23,7 @@ $(function() {
             rules: {
                 email: {
                     required: true
-                    
+
                 },
                 password: {
                     required: true,
@@ -53,102 +46,102 @@ $(function() {
 
         });
     }
-// End Login Form Validation
-// Forgot Password Validation
-var forgotform = $('#Forgot-Password-Form');
+    // End Login Form Validation
+    // Forgot Password Validation
+    var forgotform = $('#Forgot-Password-Form');
 
-if (forgotform.length) {
-    forgotform.validate({
-        rules: {
-            email: {
-                required: true
-                
-            }
-           
+    if (forgotform.length) {
+        forgotform.validate({
+            rules: {
+                email: {
+                    required: true
 
-        },
-        messages: {
-            email: {
-                required: 'Email Id is Mandatory!'
-            }
-        }
+                }
 
 
-
-    });
-}
-
-// End Forgot Password Validation
-// OTP submit Validation
-var otpform = $('#Forgot-Password-Otp');
-
-if (otpform.length) {
-    otpform.validate({
-        rules: {
-            otp: {
-                required: true
-                
-            }
-           
-
-        },
-        messages: {
-            otp: {
-                required: 'OTP is Mandatory!'
-            }
-        }
-
-
-
-    });
-}
-
-
-
-//End Otp Submit Validation
-
-//Update Password Validation
-var updatepasswordform = $('#Forgot-Password-Update');
-
-if (updatepasswordform.length) {
-    updatepasswordform.validate({
-        rules: {
-           
-
-            password: {
-                required: true,
-                pwcheck1: true
             },
-            confirmpassword: {
-                required: true,
-                equalTo: '#password1'
+            messages: {
+                email: {
+                    required: 'Email Id is Mandatory!'
+                }
             }
 
 
 
-        },
-        messages: {
-           
-            password: {
-                required: 'Password is Mandatory!'
+        });
+    }
+
+    // End Forgot Password Validation
+    // OTP submit Validation
+    var otpform = $('#Forgot-Password-Otp');
+
+    if (otpform.length) {
+        otpform.validate({
+            rules: {
+                otp: {
+                    required: true
+
+                }
+
+
             },
-            confirmpassword: {
-                required: 'Confirmpassword is Mandatory!'
+            messages: {
+                otp: {
+                    required: 'OTP is Mandatory!'
+                }
             }
 
 
 
-        }
-
-    });
-}
+        });
+    }
 
 
 
-//Update Password Validation
+    //End Otp Submit Validation
+
+    //Update Password Validation
+    var updatepasswordform = $('#Forgot-Password-Update');
+
+    if (updatepasswordform.length) {
+        updatepasswordform.validate({
+            rules: {
 
 
-//Register Page Validation
+                password: {
+                    required: true,
+                    pwcheck1: true
+                },
+                confirmpassword: {
+                    required: true,
+                    equalTo: '#password1'
+                }
+
+
+
+            },
+            messages: {
+
+                password: {
+                    required: 'Password is Mandatory!'
+                },
+                confirmpassword: {
+                    required: 'Confirmpassword is Mandatory!'
+                }
+
+
+
+            }
+
+        });
+    }
+
+
+
+    //Update Password Validation
+
+
+    //Register Page Validation
 
     var registerform = $('#registerform');
 
@@ -213,11 +206,11 @@ if (updatepasswordform.length) {
         $(this).toggleClass("fa-eye fa-eye-slash");
         var input = $($(this).attr("toggle"));
         if (input.attr("type") == "password") {
-          input.attr("type", "text");
+            input.attr("type", "text");
         } else {
-          input.attr("type", "password");
+            input.attr("type", "password");
         }
-      });
-      //Password Not show
+    });
+    //Password Not show
 
 });

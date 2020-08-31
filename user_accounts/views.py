@@ -65,15 +65,42 @@ def generate_otp():
 
 def forget_sent_email(request):
     email = request.GET.get('email',None)
-    print(email)
-    otp = generate_otp()
-    subject = 'LoomBazar Reset Password'
-    message = 'Your OTP to reset your password is : ' + str(otp)
-    sender = 'loombazar.official@gmail.com'
-    send_mail(subject,message,sender,[email],fail_silently=False)
+    sent = request.GET.get('sent',None)
     
-    data = {
-        'otp': otp
-    }
-    return JsonResponse(data)
+    if sent == 'True':
+        otp = generate_otp()
+        send_otp = otp
+        subject = 'LoomBazar Reset Password'
+        message = 'Your OTP to reset your password is : ' + str(otp)
+        sender = 'loombazar.official@gmail.com'
+        send_mail(subject,message,sender,[email],fail_silently=False)
+    
+        data = {
+            'otp': otp
+        }
+        return JsonResponse(data)
+    else:
+        user_otp = request.GET.get('user_otp',None)
+        send_otp = request.GET.get('send_otp',None)
+        match = ''
+        if send_otp == user_otp:
+            match = 'True'
+        else:
+            match = 'False'
+        print(match)
+        data = {
+            'match':match
+        }
+        return JsonResponse(data)
+
+def reset_password(request):
+    email = request.POST['user_email']
+    password = request.POST['password']
+    print(email,password)
+    user = User.objects.get(email = email)
+    user.set_password(password)
+    user.save()
+    messages.success(request,'Password Updated Successfully. Please login Again !!')
+    return redirect('login_page')
+
 

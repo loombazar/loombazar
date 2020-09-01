@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'products',
     'user_accounts',
+    'address',
+    'widget_tweaks',
 
     'django.contrib.sites',
     'allauth',

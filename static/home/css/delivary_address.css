@@ -1,0 +1,169 @@
+.delivary_address .my-profile
+{
+     
+      min-height: 130px;
+      background-color:#f2f2f2;
+      border-radius: 8px;
+      padding: 20px 20px 20px;
+      border: 1px solid #f2f2f2;
+      /* //width: 100%; */
+      /* //margin: 0px 0px 16px; */
+      
+
+}
+.delivary_address .my-profile .user-profile-img
+{
+   text-align: left;
+   width: 50px;
+   height: 50px;;
+   background-color: #008ECC;
+   border-radius: 50%;
+
+}
+.delivary_address .my-profile .customerfullname h3
+{
+    
+    font-size:30px;
+    color: #000;
+    margin:0px 0px 0px 20px;
+    text-transform: capitalize;
+    padding: 0;
+
+}
+.delivary_address .my-profile .customerfullname h6
+{
+    /* font-size:10px; */
+    
+    line-height:10px;
+    color: #fff;
+    margin:10px 0px 0px 20px;
+    color: rgba(21,27,57,.6);
+    font-style: italic;
+    
+
+}
+
+.delivary_address .myaccountdetalis
+{
+     
+      min-height: 130px;
+      background-color:#f2f2f2;
+      border-radius: 8px;
+      padding: 20px 20px 20px;
+      border: 1px solid #f2f2f2;
+      width: 100%; 
+      /* //margin: 0px 0px 16px; */
+      
+
+}
+.delivary_address .myaccountdetalis .payment-order-text
+{
+   display: inline-block;
+    color:black;
+    padding-top: 20px;
+    
+
+}
+
+.customlink
+{
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    background :#f2f2f2;
+    border-radius: 8px;
+    border: 1px solid  #f2f2f2;
+    margin: 16px 0 16px;
+}
+.customlink .linkcontrol  a
+{
+    font-family: JioMedium;
+    font-size: 14px;
+    color: #000;
+    line-height: 24px;
+    padding: 14px 0 14px 6px;
+    width: 100%;
+    transition: 0.5s;
+    display: inline-block;
+    position: relative;
+    background: 0 0;
+}
+.customlink .linkcontrol  a:after
+{
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    background:	#e6ffff;
+    
+    height: 0.5px;
+    left: 0;
+    width: 100%;
+}
+.customlink .linkcontrol  a:before
+{
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    content: '';
+    background: #FFF;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+.customlink .linkcontrol a:hover:before
+{
+     width: 100%;
+}
+.customlink .linkcontrol  i 
+{
+   
+    padding-right: 10px;
+    font-size: 20px;
+    
+}
+.customlink .linkcontrol  a .icon
+{
+    font-size: 20px;
+   
+    
+}
+
+.address-detalis 
+{
+    background:#f2f2f2;
+    margin: 16px auto 16px;
+    padding: 16px 24px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.address-detalis h6{
+     letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 0 16px;
+    margin: 0;
+    font-family: JioBold;
+    font-size: 12px;
+    color: rgba(21,27,57,.6);
+    line-height: 16px;
+}
+.address-detalis .add-address
+{
+    border: 1px solid #a6a8b4;
+    width: 100%;
+    display: inline-block;
+    padding: 16px 0 16px 40px;
+    text-align: left;
+    letter-spacing: .15px;
+    position: relative;
+    border-radius: 8px;
+
+    font-size: 16px;
+    color: rgba(21,27,57,.6);
+    line-height: 24px;
+}
+
+
+

@@ -23,7 +23,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__left product__thumb nice-scroll">
                         <a class="pt active" href="#product-1">
-                            <img src="{{prod.image1.url}}" alt="">
+                            <img src="{{prod.image1.url}}" alt="" id="pimagepk{{item.pk}}">
                         </a>
                         {% if prod.image2 %}
                         <a class="pt" href="#product-2">
@@ -51,7 +51,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="product__details__text">
-                    <h3>{{prod.product_name}} <span>Brand: {{prod.product_brand}}</span></h3>
+                    <h3><span id="pnamepk{{item.pk}}">{{prod.product_name}}</span> <span id="pbrandpk{{item.pk}}">Brand: {{prod.product_brand}}</span></h3>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -60,16 +60,13 @@
                         <i class="fa fa-star"></i>
                         <span>( 138 reviews )</span>
                     </div>
-                    <div class="product__details__price"> &#8377; {{prod.discount_price}} <span>  &#8377; <strike> {{prod.actual_price}}</strike></span></div>
+                    <div class="product__details__price"> &#8377; <span id="dpricepk{{item.pk}}" style="color:#ca1515;font-size:larger;">{{prod.discount_price }}</span> <span id="apricepk{{item.pk}}" style="color:gray;font-size:25px;text-decoration: line-through;">{{prod.actual_price}}</span>
+
+                    </div>
                     <p>{{prod.description}}</p>
                     <div class="product__details__button">
-                        <div class="quantity">
-                            <span>Quantity:</span>
-                            <div class="pro-qty">
-                                <input type="text" value="1">
-                            </div>
-                        </div>
-                        <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+
+                        <a href="#" class="cart-btn add_to_cart"><span class="icon_bag_alt"></span> Add to cart</a>
                         <ul>
                             <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                             <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>

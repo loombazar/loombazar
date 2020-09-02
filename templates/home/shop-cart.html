@@ -111,6 +111,14 @@
     create_cart();
     check_cart();
 
+    function create_cart() {
+        if (localStorage.getItem('cart1') == null) {
+            cart1 = {};
+        } else {
+            cart1 = JSON.parse(localStorage.getItem('cart1'));
+
+        }
+    }
 
     function check_cart() {
 
@@ -122,14 +130,7 @@
             create_cart_table(cart1);
         }
 
-        function create_cart() {
-            if (localStorage.getItem('cart1') == null) {
-                cart1 = {};
-            } else {
-                cart1 = JSON.parse(localStorage.getItem('cart1'));
 
-            }
-        }
     }
 
 

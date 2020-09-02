@@ -33,6 +33,7 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
 /* html,
 body {
     height: 100%;
@@ -113,6 +114,7 @@ ol {
   Helper CSS
 -----------------------*/
 
+
 /* .section-title {
     margin-bottom: 45px;
 }
@@ -160,7 +162,9 @@ ol {
 }
  */
 
+
 /* buttons */
+
 
 /* .primary-btn {
     display: inline-block;
@@ -186,6 +190,7 @@ ol {
 
 
 /* Preloder */
+
 
 /* #preloder {
     position: fixed;
@@ -318,9 +323,11 @@ ol {
 }
  */
 
+
 /*---------------------
   Header
 -----------------------*/
+
 
 /* .header {
     background: #ffffff;
@@ -511,6 +518,8 @@ ol {
 /*---------------------
   Banner
 -----------------------*/
+
+
 /* 
 .banner {
     height: 500px;
@@ -583,6 +592,7 @@ ol {
   Trend
 -----------------------*/
 
+
 /* .trend {
     padding-top: 80px;
     padding-bottom: 50px;
@@ -647,6 +657,7 @@ ol {
 /*---------------------
   Discount
 -----------------------*/
+
 
 /* .discount__pic img {
     min-width: 100%;
@@ -760,6 +771,7 @@ ol {
   Services
 -----------------------*/
 
+
 /* .services {
     padding-top: 80px;
     padding-bottom: 50px;
@@ -793,6 +805,7 @@ ol {
 /*---------------------
   Instagram
 -----------------------*/
+
 
 /* .instagram__item {
     height: 320px;
@@ -1042,6 +1055,7 @@ ol {
   Categories
 -----------------------*/
 
+
 /* .categories {
     overflow: hidden;
     margin-top: 10px;
@@ -1116,6 +1130,7 @@ ol {
 /*---------------------
   Product
 -----------------------*/
+
 
 /* .product {
     padding-top: 60px;
@@ -1324,6 +1339,7 @@ ol {
 /*---------------------
   Shop
 -----------------------*/
+
 
 /* .shop {
     padding-top: 70px;
@@ -1746,7 +1762,6 @@ ol {
 .product__details__price span {
     font-size: 18px;
     color: #b1b0b0;
-    text-decoration: line-through;
     margin-left: 10px;
     display: inline-block;
 }
@@ -2044,6 +2059,7 @@ ol {
 	content: "";
 } */
 
+
 /* .nav-item {
     margin-right: 46px;
 }
@@ -2084,6 +2100,7 @@ ol {
     margin-bottom: 35px;
 }
  */
+
 
 /*---------------------
   Shop Cart

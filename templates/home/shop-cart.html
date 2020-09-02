@@ -108,13 +108,16 @@
 <!-- Shop Cart Section End -->
 {% block javascript %}
 <script>
+    create_cart();
     check_cart();
 
+
     function check_cart() {
+
         if (Object.keys(cart1).length == 0) {
             document.getElementById('shop_cart_view').innerHTML = "<div class='container text-center' ><div><img src='static/home/undraw_empty_xct9.svg' style='height:300px;width:400px;' class='img-responsive' /></div><h3 style='font-weight:bold;text-align:center;'>Your Cart is Empty</h3><div class='col-lg-6 col-md-6 col-sm-6 ' style='margin:0 auto;' ><div class='cart__btn' ><a href='#' style='border-top:3px solid red;border-bottom:1px solid red;'>Continue Shopping</a></div></div></div>";
         } else {
-            create_cart();
+
             cart1 = JSON.parse(localStorage.getItem('cart1'));
             create_cart_table(cart1);
         }
@@ -128,7 +131,6 @@
             }
         }
     }
-
 
 
 

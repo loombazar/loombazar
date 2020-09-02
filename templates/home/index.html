@@ -160,7 +160,7 @@
             <!--<p><span id="cart_qty_pk{{item.pk}}" class="qty_div"><a class="button cart" id="pk{{item.pk}}"><span class="fa fa-cart-plus" style="font-size:30px;float:left;color:blue"></span></a>
                         </span> <a><span class="fa fa-heart" style="font-size:30px;float:right;color:red;"></span></a></p>-->
 
-            <p><span id="cart_qty_pk{{item.pk}}" class="qty_div"><a class="button cart1" id="pk{{item.pk}}" ><span class="fa fa-cart-plus" style="font-size:30px;float:left;color:blue"></span></a>
+            <p><span id="cart_qty_pk{{item.pk}}" class="qty_div"><a class="button cart_btn" id="pk{{item.pk}}" ><span class="fa fa-cart-plus" style="font-size:30px;float:left;color:blue"></span></a>
                 </span> <a><span class="fa fa-heart" style="font-size:30px;float:right;color:red;"></span></a></p>
 
         </div>
@@ -742,7 +742,7 @@
         }
     }
 
-    $('.cart1').click(function() {
+    $('.cart_btn').click(function() {
         id = this.id.toString();
         console.log(id);
         if (cart1[id] != undefined) {

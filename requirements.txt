@@ -1,2 +1,2 @@
 social-auth-app-django
-social_django
+django-allauth

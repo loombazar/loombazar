@@ -33,7 +33,8 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-html,
+
+/* html,
 body {
     height: 100%;
     font-family: "Montserrat", sans-serif;
@@ -106,14 +107,15 @@ ul,
 ol {
     padding: 0;
     margin: 0;
-}
+} */
 
 
 /*---------------------
   Helper CSS
 -----------------------*/
 
-.section-title {
+
+/* .section-title {
     margin-bottom: 45px;
 }
 
@@ -158,11 +160,13 @@ ol {
 .text-white a {
     color: #fff;
 }
+ */
 
 
 /* buttons */
 
-.primary-btn {
+
+/* .primary-btn {
     display: inline-block;
     font-size: 14px;
     text-transform: uppercase;
@@ -182,12 +186,13 @@ ol {
     display: inline-block;
     padding: 12px 30px;
     border-radius: 50px;
-}
+} */
 
 
 /* Preloder */
 
-#preloder {
+
+/* #preloder {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -316,13 +321,15 @@ ol {
     -ms-flex-pack: center;
     justify-content: center;
 }
+ */
 
 
 /*---------------------
   Header
 -----------------------*/
 
-.header {
+
+/* .header {
     background: #ffffff;
     -webkit-box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
     box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
@@ -505,13 +512,15 @@ ol {
 
 .canvas__open {
     display: none;
-}
+} */
 
 
 /*---------------------
   Banner
 -----------------------*/
 
+
+/* 
 .banner {
     height: 500px;
 }
@@ -576,14 +585,15 @@ ol {
 
 .banner__slider.owl-carousel .owl-dots button:last-child {
     margin-right: 0;
-}
+} */
 
 
 /*---------------------
   Trend
 -----------------------*/
 
-.trend {
+
+/* .trend {
     padding-top: 80px;
     padding-bottom: 50px;
 }
@@ -641,14 +651,15 @@ ol {
     color: #b1b0b0;
     text-decoration: line-through;
     margin-left: 4px;
-}
+} */
 
 
 /*---------------------
   Discount
 -----------------------*/
 
-.discount__pic img {
+
+/* .discount__pic img {
     min-width: 100%;
     height: 100%;
 }
@@ -753,14 +764,15 @@ ol {
     margin-bottom: 0;
     display: inline-block;
     font-weight: 500;
-}
+} */
 
 
 /*---------------------
   Services
 -----------------------*/
 
-.services {
+
+/* .services {
     padding-top: 80px;
     padding-bottom: 50px;
 }
@@ -787,14 +799,15 @@ ol {
 
 .services__item p {
     margin-bottom: 0;
-}
+} */
 
 
 /*---------------------
   Instagram
 -----------------------*/
 
-.instagram__item {
+
+/* .instagram__item {
     height: 320px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -853,7 +866,7 @@ ol {
     font-weight: 500;
     display: block;
     margin-top: 10px;
-}
+} */
 
 
 /*---------------------
@@ -1042,7 +1055,8 @@ ol {
   Categories
 -----------------------*/
 
-.categories {
+
+/* .categories {
     overflow: hidden;
     margin-top: 10px;
 }
@@ -1110,14 +1124,15 @@ ol {
     width: 100%;
     background: #ca1515;
     content: "";
-}
+} */
 
 
 /*---------------------
   Product
 -----------------------*/
 
-.product {
+
+/* .product {
     padding-top: 60px;
     padding-bottom: 50px;
 }
@@ -1318,14 +1333,15 @@ ol {
     color: #b1b0b0;
     text-decoration: line-through;
     margin-left: 4px;
-}
+} */
 
 
 /*---------------------
   Shop
 -----------------------*/
 
-.shop {
+
+/* .shop {
     padding-top: 70px;
     padding-bottom: 80px;
 }
@@ -1617,7 +1633,7 @@ ol {
     background: #0d0d0d;
     border-color: #0d0d0d;
     color: #ffffff;
-}
+} */
 
 
 /*---------------------
@@ -1746,7 +1762,6 @@ ol {
 .product__details__price span {
     font-size: 18px;
     color: #b1b0b0;
-    text-decoration: line-through;
     margin-left: 10px;
     display: inline-block;
 }
@@ -2044,7 +2059,8 @@ ol {
 	content: "";
 } */
 
-.nav-item {
+
+/* .nav-item {
     margin-right: 46px;
 }
 
@@ -2083,6 +2099,7 @@ ol {
     text-transform: uppercase;
     margin-bottom: 35px;
 }
+ */
 
 
 /*---------------------

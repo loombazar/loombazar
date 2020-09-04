@@ -1,612 +1,834 @@
- {% extends 'home/base.html' %} {% block content %}{% load static %}
+{% extends 'home/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/main.css' %} " type="text/css">
 
-<!-- Categories Section Begin -->
-<section class="categories">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 p-0">
-                <div class="categories__item categories__large__item set-bg" data-setbg="static/home/img/categories/category-1.jpg">
-                    <div class="categories__text">
-                        <h1>Women’s fashion</h1>
-                        <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore edolore magna aliquapendisse ultrices gravida.</p>
-                        <a href="#">Shop now</a>
-                    </div>
+<link rel="stylesheet" href="{% static 'home/css/lightslider.css' %}" type="text/css"> {% endblock %} {% block content %}
+
+
+
+<!-- Carousel Start Main Page -->
+<section class="carousel-main">
+    <div id="MagicCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#MagicCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#MagicCarousel" data-slide-to="1"></li>
+            <li data-target="#MagicCarousel" data-slide-to="2"></li>
+            <li data-target="#MagicCarousel" data-slide-to="3"></li>
+            <li data-target="#MagicCarousel" data-slide-to="4"></li>
+
+
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+
+                <picture>
+                    <source srcset="static/home/img/carousel/new1.png " type="image/jpg" media="(min-width: 900px)">
+                    <source srcset="static/home/img/carousel/new1.png " type="image/jpg" media="(min-width: 769px)">
+                    <source srcset="static/home/img/carousel/new1.png " type="image/jpg" media="(min-width: 577px)">
+
+                    <img srcset="static/home/img/carousel/sari11.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption">
+
+
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="static/home/img/categories/category-2.jpg">
-                            <div class="categories__text">
-                                <h4>Men’s fashion</h4>
-                                <p>358 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="static/home/img/categories/category-3.jpg">
-                            <div class="categories__text">
-                                <h4>Kid’s fashion</h4>
-                                <p>273 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="static/home/img/categories/category-4.jpg">
-                            <div class="categories__text">
-                                <h4>Cosmetics</h4>
-                                <p>159 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="static/home/img/categories/category-5.jpg">
-                            <div class="categories__text">
-                                <h4>Accessories</h4>
-                                <p>792 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="static/home/img/carousel/new3.jpg" type="image/jpg" media="(min-width: 1400px)">
+                    <source srcset="static/home/img/carousel/sari2.jpg " type="image/jpg" media="(min-width: 769px)">
+                    <source srcset="static/home/img/carousel/sari2.jpg " type="image/jpg" media="(min-width: 577px)">
+
+                    <img srcset="static/home/img/carousel/sari22.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption">
+
                 </div>
             </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="static/home/img/carousel/sari3.jpg" type="image/jpg" media="(min-width: 1400px)">
+                    <source srcset="static/home/img/carousel/sari3.jpg " type="image/jpg" media="(min-width: 769px)">
+                    <source srcset="static/home/img/carousel/sari3.jpg " type="image/jpg" media="(min-width: 577px)">
+
+                    <img srcset="static/home/img/carousel/sari33.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="static/home/img/carousel/sari4.jpg" type="image/jpg" media="(min-width: 1400px)">
+                    <source srcset="static/home/img/carousel/sari4.jpg " type="image/jpg" media="(min-width: 769px)">
+                    <source srcset="static/home/img/carousel/sari5.jpg " type="image/jpg" media="(min-width: 577px)">
+
+                    <img srcset="static/home/img/carousel/sari44.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="static/home/img/carousel/sari5.jpg" type="image/jpg" class="hover-effect" media="(min-width: 1400px)">
+                    <source srcset="static/home/img/carousel/sari5.jpg " type="image/jpg" media="(min-width: 769px)">
+                    <source srcset="static/home/img/carousel/sari5.jpg " type="image/jpg" media="(min-width: 577px)">
+
+                    <img srcset="static/home/img/carousel/sari55.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+            <div id="control-icon">
+                <a href="#MagicCarousel" class="carousel-control-prev" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a href="#MagicCarousel" class="carousel-control-next" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
         </div>
+
     </div>
+
+
 </section>
-<!-- Categories Section End -->
 
-<!-- Product Section Begin -->
-<section class="product spad">
-    <div class="container">
+<!-- End Main Part Home Page -->
+<!-- Main Second Part  Home Page-->
+<div class="index-second-phase">
+    <div class="container container-img">
+        <h2>New Arrivals</h2>
+        <div class="row row-img">
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="product-top">
+                    <a href="#"> <img src="static/home/img/suta/s1.jpg" class="image-suta1"> </a>
+
+                </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>CHITRA</p>
+                    <p>Rs.3900</p>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="product-top">
+                    <a href="#"> <img src="static/home/img/suta/s2.jpg" class="image-suta2"> </a>
+
+                </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>DOLON</p>
+                    <p>Rs.3200</p>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="product-top">
+                    <a href="#"> <img src="static/home/img/suta/s3.jpg" class="image-suta3"> </a>
+
+                </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>DISGUSTINGLY BEAUTIFUL</p>
+                    <p>RS.2100</p>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4">
-                <div class="section-title">
-                    <h4>New product</h4>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="product-top">
+                    <a href="#"> <img src="static/home/img/suta/s4.jpg" class="image-suta4"></a>
+
                 </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>FLAMENCO DANCE</p>
+                    <p>Rs.3500</p>
+
+
+                </div>
+
             </div>
-            <div class="col-lg-8 col-md-8">
-                <ul class="filter__controls">
-                    <li class="active" data-filter="*">All</li>
-                    <li data-filter=".women">Women’s</li>
-                    <li data-filter=".men">Men’s</li>
-                    <li data-filter=".kid">Kid’s</li>
-                    <li data-filter=".accessories">Accessories</li>
-                    <li data-filter=".cosmetic">Cosmetics</li>
-                </ul>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="product-top">
+                    <a href="#"><img src="static/home/img/suta/s5.jpg" class="image-suta5"> </a>
+
+                </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>RAGA BHAIRAVI</p>
+                    <p>RS. 2,900</p>
+
+
+                </div>
+
             </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="product-top">
+                    <a href="#"><img src="static/home/img/suta/s7.jpg" class="image-suta7"></a>
+
+
+                </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>BOSSY CARAMEL</p>
+                    <p>Rs. 2,100</p>
+
+
+                </div>
+
+            </div>
+
+
+
         </div>
-        <div class="row property__gallery">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-1.jpg">
-                        <div class="label new">New</div>
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Buttons tweed blazer</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 59.0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix men">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-2.jpg">
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Flowy striped skirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 49.0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-3.jpg">
-                        <div class="label stockout">out of stock</div>
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Cotton T-Shirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 59.0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-4.jpg">
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-4.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Slim striped pocket shirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 59.0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-5.jpg">
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-5.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Fit micro corduroy shirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 59.0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-6.jpg">
-                        <div class="label sale">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-6.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Tropical Kimono</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-7.jpg">
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-7.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Contrasting sunglasses</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 59.0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="static/home/img/product/product-8.jpg">
-                        <div class="label">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="static/home/img/product/product-8.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Water resistant backpack</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
+
     </div>
-</section>
-<!-- Product Section End -->
 
 
-
-<!-- Banner Section Begin -->
-<section class="banner set-bg" data-setbg="static/home/img/banner/banner-1.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-7 col-lg-8 m-auto">
-                <div class="banner__slider owl-carousel">
-                    <div class="banner__item">
-                        <div class="banner__text">
-                            <span>The Chloe Collection</span>
-                            <h1>The Project Jacket</h1>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                    <div class="banner__item">
-                        <div class="banner__text">
-                            <span>The Chloe Collection</span>
-                            <h1>The Project Jacket</h1>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                    <div class="banner__item">
-                        <div class="banner__text">
-                            <span>The Chloe Collection</span>
-                            <h1>The Project Jacket</h1>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Banner Section End -->
-
-<!-- Trend Section Begin -->
-<section class="trend spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Hot Trend</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/ht-1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Chain bucket bag</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/ht-2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Pendant earrings</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/ht-3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Cotton T-Shirt</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Best seller</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/bs-1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Cotton T-Shirt</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/bs-2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Zip-pockets pebbled tote <br />briefcase</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/bs-3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Round leather bag</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Feature</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/f-1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Bow wrap skirt</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/f-2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Metallic earrings</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="static/home/img/trend/f-3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Flap cross-body bag</h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Trend Section End -->
-
-<!-- Discount Section Begin -->
-<section class="discount">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 p-0">
-                <div class="discount__pic">
-                    <img src="static/home/img/discount.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-lg-6 p-0">
-                <div class="discount__text">
-                    <div class="discount__text__title">
-                        <span>Discount</span>
-                        <h2>Summer 2019</h2>
-                        <h5><span>Sale</span> 50%</h5>
-                    </div>
-                    <div class="discount__countdown" id="countdown-time">
-                        <div class="countdown__item">
-                            <span>22</span>
-                            <p>Days</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>18</span>
-                            <p>Hour</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>46</span>
-                            <p>Min</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>05</span>
-                            <p>Sec</p>
-                        </div>
-                    </div>
-                    <a href="#">Shop now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Discount Section End -->
-
-<!-- Services Section Begin -->
-<section class="services spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="services__item">
-                    <i class="fa fa-car"></i>
-                    <h6>Free Shipping</h6>
-                    <p>For all oder over $99</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="services__item">
-                    <i class="fa fa-money"></i>
-                    <h6>Money Back Guarantee</h6>
-                    <p>If good have Problems</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="services__item">
-                    <i class="fa fa-support"></i>
-                    <h6>Online Support 24/7</h6>
-                    <p>Dedicated support</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="services__item">
-                    <i class="fa fa-headphones"></i>
-                    <h6>Payment Secure</h6>
-                    <p>100% secure payment</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Services Section End -->
-
-<!-- Instagram Begin -->
-<div class="instagram">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-1.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-2.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-3.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-4.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-5.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-6.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-<!-- Instagram End -->
+
+
+<!-- ranjeet code -->
+<section>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="h2 txt px-2 d-md-none">Women saree</div>
+                <div class="img_container">
+
+                    <img src="{% static 'home/img/indexpage/womendev.jpg' %}" alt="">
+                    <a href="#" class="btn  btn-rounded text-dark d-md-none">Explore more</a>
+                </div>
+            </div>
+            <div class="col-md-6 d-none d-md-block">
+                <div class="info_container py-5">
+
+                    <div class="h2">Women saree</div>
+                    <p>Discover the handcrafted amalgamation of tradition art and age-old craftmanship with tendy styles and silhouettes. Discover the handcrafted amalgamation of traditional art and age-old craftmanship with tendy style and silhouettes.</p>
+
+                    <a href="" class="btn btn-danger btn-rounded text-dark">Explore more</a>
+                </div>
+            </div>
+        </div>
+        <!-------------- product image slider ----------------->
+        <ul class="autoWidth cs-hidden my-3">
+
+            <li class="item-a">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/1.1.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-b">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/2.0.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9990</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-c">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/3.0.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-d">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/4.0.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-e">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/5.0.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-f">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/6.0.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9990</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-g">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/1.1.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-h">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/2.1.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree1</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 d-none d-md-block">
+                <div class="h2">Men Fashion</div>
+                <div class="info_container py-5">
+
+
+                    <p>Discover the handcrafted amalgamation of tradition art and age-old craftmanship with tendy styles and silhouettes. Discover the handcrafted amalgamation of traditional art and age-old craftmanship with tendy style and silhouettes.</p>
+
+                    <a href="" class="btn btn-danger btn-rounded text-dark">Explore more</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h2 txt px-2 d-md-none">Men Fashion</div>
+                <div class="img_container">
+
+                    <img src="{% static 'home/img/indexpage/mendev.jpg' %}" alt="">
+                    <a href="#" class="btn  btn-rounded text-dark d-md-none">Explore more</a>
+                </div>
+            </div>
+
+        </div>
+        <!-------------- product image slider ----------------->
+        <ul class="autoWidth cs-hidden my-3">
+
+            <li class="item-a">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men1.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-b">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men2.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9990</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-c">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men3.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-d">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men4.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-e">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men5.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-f">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men6.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9990</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-g">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men2.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-h">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/men3.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree1</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="h2 txt px-2 d-md-none">Kid Fashion</div>
+                <div class="img_container">
+
+                    <img src="{% static 'home/img/indexpage/kiddev.jpg' %}" alt="">
+                    <a href="#" class="btn  btn-rounded text-dark d-md-none">Explore more</a>
+                </div>
+            </div>
+            <div class="col-md-6 d-none d-md-block">
+                <div class="info_container py-5">
+
+                    <div class="h2">Kid Fashion</div>
+                    <p>Discover the handcrafted amalgamation of tradition art and age-old craftmanship with tendy styles and silhouettes. Discover the handcrafted amalgamation of traditional art and age-old craftmanship with tendy style and silhouettes.</p>
+
+                    <a href="" class="btn btn-danger btn-rounded text-dark">Explore more</a>
+                </div>
+            </div>
+        </div>
+        <!-------------- product image slider ----------------->
+        <ul class="autoWidth cs-hidden my-3">
+
+            <li class="item-a">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid1.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-b">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid4.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9990</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-c">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid3.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-d">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid4.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-e">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid5.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-f">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid4.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 9990</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-g">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid3.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item-h">
+                <a href="#">
+                    <div class="product_box">
+                        <!-- product image -->
+                        <div class="product_img">
+
+                            <img src="{% static 'home/img/indexpage/kid5.jpg' %}" alt="product image">
+
+
+                        </div>
+                        <!-- product details -->
+                        <div class="product_details">
+                            <div class="product_name">Sambalpuri saree1</div>
+                            <div class="product_price">Rs 999</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</section>
+<!-- End ranjeet code -->
+
+{% endblock %} {% block javascript %}
+<script src="{% static 'home/js/lightslider.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var autoplaySlider = $('.autoWidth').lightSlider({
+            item: 5,
+            loop: true,
+            slideMove: 1,
+            // easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            speed: 600,
+            auto: true,
+            pauseOnHover: true,
+
+            responsive: [{
+                breakpoint: 800,
+                settings: {
+                    item: 3,
+                    slideMove: 1,
+                }
+            }, {
+                breakpoint: 480,
+                settings: {
+                    item: 2,
+                    slideMove: 1
+                }
+            }],
+            onBeforeSlide: function(el) {
+                $('#current').text(el.getCurrentSlideCount());
+            }
+        });
+
+        $('#total').text(autoplaySlider.getTotalSlideCount());
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $(".image-suta1").hover(function() {
+            $(this).attr('src', 'static/home/img/suta/s11.jpg');
+        }, function() {
+            $(this).attr('src', 'static/home/img/suta/s1.jpg');
+        });
+        $(".image-suta2").hover(function() {
+            $(this).attr('src', 'static/home/img/suta/s22.jpg');
+        }, function() {
+            $(this).attr('src', 'static/home/img/suta/s2.jpg');
+        });
+
+        $(".image-suta3").hover(function() {
+            $(this).attr('src', 'static/home/img/suta/s33.jpg');
+        }, function() {
+            $(this).attr('src', 'static/home/img/suta/s3.jpg');
+        });
+
+        $(".image-suta4").hover(function() {
+            $(this).attr('src', 'static/home/img/suta/s44.jpg');
+        }, function() {
+            $(this).attr('src', 'static/home/img/suta/s4.jpg');
+        });
+
+        $(".image-suta5").hover(function() {
+            $(this).attr('src', 'static/home/img/suta/s55.jpg');
+        }, function() {
+            $(this).attr('src', 'static/home/img/suta/s5.jpg');
+        });
+
+        $(".image-suta7").hover(function() {
+            $(this).attr('src', 'static/home/img/suta/s77.jpg');
+        }, function() {
+            $(this).attr('src', 'static/home/img/suta/s7.jpg');
+        });
+    });
+</script>
+
+
 {% endblock %}

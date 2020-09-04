@@ -1,0 +1,165 @@
+.payment-account .my-profile
+{
+     
+      min-height: 130px;
+      background-color:#f2f2f2;
+      border-radius: 8px;
+      padding: 20px 20px 20px;
+      border: 1px solid #f2f2f2;
+      /* //width: 100%; */
+      /* //margin: 0px 0px 16px; */
+      
+
+}
+.payment-account .my-profile .user-profile-img
+{
+   text-align: left;
+   width: 50px;
+   height: 50px;;
+   background-color: #008ECC;
+   border-radius: 50%;
+
+}
+.payment-account .my-profile .customerfullname h3
+{
+    
+    font-size:30px;
+    color: #000;
+    margin:0px 0px 0px 20px;
+    text-transform: capitalize;
+    padding: 0;
+
+}
+.payment-account .my-profile .customerfullname h6
+{
+    /* font-size:10px; */
+    
+    line-height:10px;
+    color: #fff;
+    margin:10px 0px 0px 20px;
+    color: rgba(21,27,57,.6);
+    font-style: italic;
+    
+
+}
+
+.payment-account .myaccountdetalis
+{
+     
+      min-height: 130px;
+      background-color:#f2f2f2;
+      border-radius: 8px;
+      padding: 20px 20px 20px;
+      border: 1px solid #f2f2f2;
+      width: 100%; 
+      /* //margin: 0px 0px 16px; */
+      
+
+}
+.payment-account .myaccountdetalis .payment-order-text
+{
+   display: inline-block;
+    color:black;
+    padding-top: 20px;
+    
+
+}
+
+.customlink
+{
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    background :#f2f2f2;
+    border-radius: 8px;
+    border: 1px solid  #f2f2f2;
+    margin: 16px 0 16px;
+}
+.customlink .linkcontrol  a
+{
+    font-family: JioMedium;
+    font-size: 14px;
+    color: #000;
+    line-height: 24px;
+    padding: 14px 0 14px 6px;
+    width: 100%;
+    transition: 0.5s;
+    display: inline-block;
+    position: relative;
+    background: 0 0;
+}
+.customlink .linkcontrol  a:after
+{
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    background:	#e6ffff;
+    
+    height: 0.5px;
+    left: 0;
+    width: 100%;
+}
+.customlink .linkcontrol  a:before
+{
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    content: '';
+    background: #FFF;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+.customlink .linkcontrol a:hover:before
+{
+     width: 100%;
+}
+.customlink .linkcontrol  i 
+{
+   
+    padding-right: 10px;
+    font-size: 20px;
+    
+}
+.customlink .linkcontrol  a .icon
+{
+    font-size: 20px;
+   
+    
+}
+
+.card-detalis
+{
+    margin: 16px 0 16px;
+}
+.card-detalis .page-title
+{
+    padding: 16px;
+    margin: 0;
+    letter-spacing: 1px;
+ 
+    font-size: 12px;
+    color: #6f7183;
+    line-height: 16px;
+}
+.card-detalis .card-detalis-saved
+{
+    margin: 0;
+    background: #f2f2f2;
+    padding: 16px 0;
+    text-align: center;
+    display: block;
+    
+    font-size: 12px;
+    color: #333;
+    line-height: 16px;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+

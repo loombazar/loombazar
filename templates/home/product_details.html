@@ -6,15 +6,15 @@
             <div class="col-lg-12">
                 <div class="breadcrumb__links">
                     <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
-                    <a href="#">Women’s </a>
-                    <span>Essential structured blazer</span>
+                    <a href="#">{{prod.people_category}} </a>
+                    <span> {{prod.product_name}} </span>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Breadcrumb End -->
-
+<span id="pk_val" hidden>{{prod.pk}}</span>
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
     <div class="container">
@@ -23,31 +23,35 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__left product__thumb nice-scroll">
                         <a class="pt active" href="#product-1">
-                            <img src="{% static 'home/img/product/details/thumb-1.jpg' %}" alt="">
+                            <img src="{{prod.image1.url}}" alt="" id="pimagepk{{prod.pk}}">
                         </a>
+                        {% if prod.image2 %}
                         <a class="pt" href="#product-2">
-                            <img src="{% static 'home/img/product/details/thumb-2.jpg' %}" alt="">
+                            <img src="{{prod.image2.url}}" alt="">
                         </a>
+                        {% endif %} {% if prod.image3 %}
                         <a class="pt" href="#product-3">
-                            <img src="{% static 'home/img/product/details/thumb-3.jpg' %}" alt="">
+                            <img src="{{prod.image3.url}}" alt="">
                         </a>
+                        {% endif %} {% if prod.image4 %}
                         <a class="pt" href="#product-4">
-                            <img src="{% static 'home/img/product/details/thumb-4.jpg' %}" alt="">
+                            <img src="{{prod.image4.url}}" alt="">
                         </a>
+                        {% endif %}
                     </div>
                     <div class="product__details__slider__content">
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-hash="product-1" class="product__big__img" src="{% static 'home/img/product/details/product-1.jpg' %}" alt="">
-                            <img data-hash="product-2" class="product__big__img" src="{% static 'home/img/product/details/product-3.jpg' %}" alt="">
-                            <img data-hash="product-3" class="product__big__img" src="{% static 'home/img/product/details/product-2.jpg' %}" alt="">
-                            <img data-hash="product-4" class="product__big__img" src="{% static 'home/img/product/details/product-4.jpg' %}" alt="">
+                            <img data-hash="product-1" class="product__big__img" src="{{prod.image1.url}}" alt=""> {% if prod.image2 %}
+                            <img data-hash="product-2" class="product__big__img" src="{{prod.image2.url}}" alt=""> {% endif %} {% if prod.image3 %}
+                            <img data-hash="product-3" class="product__big__img" src="{{prod.image3.url}}" alt=""> {% endif %} {% if prod.image4 %}
+                            <img data-hash="product-4" class="product__big__img" src="{{prod.image4.url}}" alt=""> {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="product__details__text">
-                    <h3>Essential structured blazer <span>Brand: SKMEIMore Men Watches from SKMEI</span></h3>
+                    <h3><span id="pnamepk{{prod.pk}}">{{prod.product_name}}</span> <span id="pbrandpk{{prod.pk}}"> {{prod.product_brand}}</span></h3>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -56,16 +60,18 @@
                         <i class="fa fa-star"></i>
                         <span>( 138 reviews )</span>
                     </div>
-                    <div class="product__details__price">$ 75.0 <span>$ 83.0</span></div>
-                    <p>Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur magni lores eos qui ratione voluptatem sequi nesciunt.</p>
+                    <div class="product__details__price"> &#8377; <span id="dpricepk{{prod.pk}}" style="color:#ca1515;font-size:larger;">{{prod.discount_price }}</span> <span id="apricepk{{prod.pk}}" style="color:gray;font-size:25px;text-decoration: line-through;">{{prod.actual_price}}</span>
+
+                    </div>
+                    <p>{{prod.description}}</p>
                     <div class="product__details__button">
-                        <div class="quantity">
-                            <span>Quantity:</span>
-                            <div class="pro-qty">
-                                <input type="text" value="1">
-                            </div>
-                        </div>
-                        <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                        <span id="addcart{{prod.pk}}">
+                            <a class="cart-btn add_to_cart" style="color:white;" id="addpk{{prod.pk}}"  ><span class="icon_bag_alt"></span> <span>Add to cart</span></a>
+                        </span>
+                        <span id="viewcart{{prod.pk}}">
+                            <a href="{% url 'cart_page' %}" class="cart-btn" style="color:white;background-color:lightcoral;" id="viewpk{{prod.pk}}"><span class="fa fa-cart-arrow-down"></span> <span>View in cart</span></a>
+                        </span>
+
                         <ul>
                             <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                             <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
@@ -325,4 +331,75 @@
     </div>
 </div>
 <!-- Instagram End -->
+{% endblock %} {% block javascript %}
+
+<script>
+    create_cart();
+
+
+
+
+    function create_cart() {
+        if (localStorage.getItem('cart1') == null) {
+            cart1 = {};
+        } else {
+            cart1 = JSON.parse(localStorage.getItem('cart1'));
+
+
+        }
+    }
+
+    pk_val = document.getElementById('pk_val').innerText;
+    val = 'pk' + pk_val;
+
+    if (cart1[val] != undefined) {
+        addcart = '#addcart' + pk_val;
+        $(addcart).hide();
+        viewcart = '#viewcart' + pk_val;
+        $(viewcart).show();
+    } else {
+        addcart = '#addcart' + pk_val;
+        $(addcart).show();
+        viewcart = '#viewcart' + pk_val;
+        $(viewcart).hide();
+    }
+
+
+    $(".add_to_cart").click(function() {
+        id1 = this.id.toString();
+        id = id1.slice(3, );
+        pk = id1.slice(5, );
+
+        console.log(id);
+        console.log(id1);
+        if (cart1[id] != undefined) {
+            cart1[id][5] = cart1[id][5] + 1;
+
+
+        } else {
+            quantity = 1;
+            pname = document.getElementById('pname' + id).innerHTML;
+            pbrand = document.getElementById('pbrand' + id).innerHTML;
+            dprice = document.getElementById('dprice' + id).innerHTML;
+            aprice = document.getElementById('aprice' + id).innerHTML;
+            pimage = document.getElementById('pimage' + id).src;
+            total = parseInt(dprice) * quantity;
+            cart1[id] = [pimage, pname, pbrand, dprice, aprice, quantity, total];
+
+        }
+
+        localStorage.setItem('cart1', JSON.stringify(cart1));
+        cartlen = Object.keys(cart1).length;
+        addcart = '#addcart' + pk;
+        console.log(addcart);
+        $(addcart).hide();
+        viewcart = '#viewcart' + pk;
+        $(viewcart).show();
+    });
+
+
+
+    console.log(cart1);
+</script>
+
 {% endblock %}

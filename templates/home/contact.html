@@ -1,4 +1,75 @@
-{% extends 'home/base.html' %}{% block content %}
+{% extends 'home/base.html' %} {% block nav_item %}
+<div class="col-xl-6 col-lg-7">
+    <nav class="header__menu">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="#">Women’s</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Kurti</a></li>
+                    <li><a href="{% url 'cart_page' %}">Gown</a></li>
+                    <li><a href="./checkout.html">Top</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Saree</li>
+
+                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Cotton</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Pata (Silk)</a></li>
+                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Tishu</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Matha</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Bapta</a></li>
+
+
+                    <li class="dropdown-header">Jacket</li>
+                    <li><a href="{% url 'cart_page' %}" style="margin-left: 10px;">Long</a></li>
+                    <li><a href="./checkout.html" style="margin-left: 10px;">Short</a></li>
+
+                    <li><a href="{% url 'cart_page' %}">Lehenga</a></li>
+                    <li><a href="./checkout.html">Skirt</a></li>
+                    <li><a href="./checkout.html">Blouse</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Men’s</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Kurta</a></li>
+                    <li><a href="{% url 'cart_page' %}">Duhti</a></li>
+                    <li><a href="./checkout.html">Waistcoat</a></li>
+                    <li><a href="./blog-details.html">Shirt</a></li>
+                    <li><a href="./checkout.html">Gamuchha</a></li>
+                    <li><a href="./blog-details.html">Lungi</a></li>
+                </ul>
+            </li>
+            <li><a href="./shop.html">Kid's</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Boy's</a></li>
+                    <li><a href="{% url 'cart_page' %}">Girl's</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Home Decor</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Bedsheet</a></li>
+                    <li><a href="{% url 'cart_page' %}">Window Screen</a></li>
+                    <li><a href="./checkout.html">Pillow Cover</a></li>
+                    <li><a href="./blog-details.html">Cousin Cover</a></li>
+                    <li><a href="./blog-details.html">Door Screen</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Accessories</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'product_details' %}">Handkerchiefs</a></li>
+                    <li><a href="{% url 'cart_page' %}">Dress Material</a></li>
+                    <li><a href="./checkout.html">Stole</a></li>
+                    <li><a href="./blog-details.html">Shawl</a></li>
+                    <li><a href="./blog-details.html">Dupatta</a></li>
+                    <li><a href="./blog-details.html">Scarf</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="{% url 'contact_page' %}">Contact</a></li>
+            <li><a href="{% url 'contact_page' %}">About Us</a></li>
+        </ul>
+    </nav>
+</div>
+{% endblock %} {% block content %}
 
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">

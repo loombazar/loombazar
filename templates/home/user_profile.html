@@ -1,0 +1,280 @@
+{% extends 'home/base.html'%} {% block content %}{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/user_profile.css' %} " type="text/css"> {% endblock %}
+<!-- Customer Account Page Start  -->
+<div class="container">
+
+    <div class="customer-account mt-3">
+        <div class="page-title">
+            <h3 style="text-align:center;font-weight:bold;margin-bottom:3px;">My Account</h3>
+            <hr style="box-shadow: 2px gray;">
+
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-12">
+                <div class="my-profile">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <img src="static/home/img/profile/download.png" alt="no-photo" class="user-profile-img">
+
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="customerfullname">
+                                {% if user.full_name %}
+                                <h3 style="font-weight: bold;">{{user.full_name}}</h3>
+                                {% else %}
+                                <h3 style="font-weight: bold;">{{user.first_name}} {{user.last_name}}</h3>
+                                {% endif %}
+                                <h6>{{user.email}}</h6>
+                                {% if user.mobile_number %}
+                                <h6>{{user.mobile_number}}</h6>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <a class="editinfo personalinfor d-block d-sm-none" href="#updateModal" data-target="#updateModal" data-toggle="modal">
+                                <i class="fa fa-pencil-square-o " style="color: white;" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <a href="{% url 'payment_method' %}" class="fa fa-credit-card btn btn-info payment ">
+                                     Payment Methods
+                                 </a>
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <a href="{% url 'order_history' %}" class="fa fa-shopping-bag btn btn-info order">
+                                     Order Histrory
+                                 </a>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <a href="{% url 'delivary_address' %}" class="fa fa-map-marker btn btn-info btn-block address">
+                                 Delivery Address
+                               </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-7 col-12">
+                <div class="personaldetalis d-none d-sm-block">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Account Information</h6>
+                            <div class="label">
+                                Full Name
+                            </div>
+                            <div class="txt" style="text-transform:capitalize;">
+                                {% if user.full_name %} <span id="full_name" value="{{user.full_name}}">{{user.full_name}}</span> {% else %} <span id="first_last_name" value="{{user.first_name}} {{user.last_name}}">{{user.first_name}} {{user.last_name}}</span>                                {% endif %}
+                            </div>
+                            <div class="label">
+                                Mobile Number
+                            </div>
+                            <div class="txt">
+                                {% if user.mobile_number %} +91 <span id="mobile_number">{{user.mobile_number}}</span> {% else %} <span style="color: darksalmon;">You have no Number</span> {% endif %}
+                            </div>
+
+                            <div class="label">
+                                Gender
+                            </div>
+                            <div class="txt">
+                                {% if user.gender %} <span id="gender">{{user.gender}}</span> {% else %} <span style="color: darksalmon;">You have no Gender</span> {% endif %}
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="label">
+                                DOB
+                            </div>
+                            <div class="txt">
+                                {% if user.dob %} <span id="dob">{{user.dob}}</span> {% else %} <span style="color: darksalmon;">You have no Age</span> {% endif %}
+                            </div>
+                            <div class="label">
+                                Email
+                            </div>
+                            <div class="txt">
+                                {{user.email}}
+                            </div>
+
+                            <div class="label">
+                                Default Address
+                            </div>
+                            <div class="txt">
+                                {% if user.address %} {{user.address|first}} {% else %} <span style="color:darksalmon">You have no addresses..</span> {% endif %}
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <a href="#updateModal" id="edit_profile" data-target="#updateModal" data-toggle="modal" class="text-danger" style="font-weight: bold;">Edit</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--Customer Account Information Page End -->
+
+    <!-- Common Part Start Profile Page -->
+
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <div class="customlink">
+                <div class="linkcontrol">
+                    <a href="{% url 'wishlist' %}">
+                        <i class="fa fa-heart"></i>
+                        <span class="icon">WishList</span>
+                    </a>
+                    <a href="{% url 'legal_information' %}">
+                        <i class="fa fa-gavel" style="padding: 5px;"></i>
+                        <span class="icon ">Legal Information</span>
+                    </a>
+                    <a href="{% url 'faqs' %}">
+                        <i class="fa fa-question-circle"></i>
+                        <span class="icon ">FAQ's</span>
+                    </a>
+                    <a href="{% url 'contact_us' %}">
+                        <i class="fa fa-phone"></i>
+                        <span class="icon ">Contact Us</span>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <i class="fa fa-sign-out"></i>
+                        <span class="icon ">Logout</span>
+                    </a>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="col-md-7 col-12 d-none d-sm-block">
+
+        </div>
+    </div>
+
+    <!-- Common Part Start Profile Page -->
+
+
+</div>
+
+<!-- User Update Modal  -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title font-weight-bold w-100" id="exampleModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+            </div>
+            <form action="{% url 'edit_profile' %}" method="POST">
+                {% csrf_token %}
+                <div class="modal-body bootstrap-iso">
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="full_name" class="form-control" placeholder="Full name" type="text" id="full_name_input">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-transgender"></i> </span>
+                        </div>
+                        <select class="form-control" name="gender" id="gender_input">
+                 <option selected value=""> Select Gender</option>
+                 <option value="Male">Male</option>
+                 <option value="Female">Female</option>
+                 <option value="Others">Others</option>
+             </select>
+                    </div>
+                    <!-- form-group end.// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+                        </div>
+                        <input class="form-control" id="datepicker" name="dob" placeholder="MM/DD/YYYY" type="date" />
+                    </div>
+                    <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="{{user.email}}" type="email" disabled>
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> +91 </span>
+                        </div>
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number_input">
+                    </div>
+                    <!-- form-group// -->
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary btn-block">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- End User Modal -->
+
+
+
+{% block javascript %}
+
+<script>
+    $(document).ready(function() {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
+
+<script>
+    $("#edit_profile").click(function() {
+        full_name = "{{full_name}}";
+        dob = "{{dob|date:'Y-m-d'}}";
+        gender = "{{gender}}";
+        mobile = "{{mobile_number}}";
+        $("#full_name_input").val(full_name);
+        $("#gender_input").val(gender);
+        $("#datepicker").val(dob);
+        $("#mobile_number_input").val(mobile);
+    });
+</script>
+
+{% endblock %} {% endblock %}

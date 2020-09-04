@@ -68,5 +68,7 @@ class Product(models.Model):
     image3 = models.ImageField(upload_to='product_images',null=True,blank=True)
     image4 = models.ImageField(upload_to='product_images',null=True,blank=True)
 
+    date = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return self.product_name + " " + self.category

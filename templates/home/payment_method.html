@@ -1,0 +1,138 @@
+{% extends 'home/base.html'%} {% block content %}{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/payment_method.css' %} " type="text/css"> {% endblock %}
+
+
+<div class="container">
+    <!-- Customer Account Page Start  -->
+    <div class="payment-account mt-3">
+        <div class="page-title">
+            <h3 style="font-weight: bold;">Payment Methods</h3>
+
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-12 d-none d-sm-block">
+                <div class="my-profile">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <img src="static/home/img/profile/download.png" alt="no-photo" class="user-profile-img">
+
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="customerfullname">
+                                <h3>Bachan Ghatuary</h3>
+                                <h6>ghatuarybachan@gmail.com</h6>
+                                <h6>+91-9040444389</h6>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="col-md-7 col-12">
+                <div class="myaccountdetalis d-none d-sm-block">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <a href="{% url 'payment_method' %}" class="payment-order-img">
+                                <i class="fa fa-credit-card fa-3x"></i>
+
+                            </a><br/>
+                            <a href="{% url 'payment_method' %}" class="payment-order-text">
+                                      Payment Methods
+                                   </a>
+
+
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <a href="{% url 'order_history' %}" class=" payment-order-img">
+                                <i class="fa fa-shopping-bag fa-3x"></i>
+
+                            </a><br/>
+                            <a href="{% url 'order_history' %}" class="payment-order-text">
+                                       Order Histrory
+                                   </a>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--Customer Account Information Page End -->
+
+    <!-- Common Part Start Profile Page -->
+
+    <div class="row">
+        <div class="col-md-5 col-12 d-none d-sm-block">
+            <div class="customlink">
+                <div class="linkcontrol">
+                    <a href="{% url 'wishlist' %}">
+                        <i class="fa fa-heart"></i>
+                        <span class="icon">WishList</span>
+                    </a>
+                    <a href="{% url 'legal_information' %}">
+                        <i class="fa fa-gavel"></i>
+                        <span class="icon ">Legal Information</span>
+                    </a>
+                    <a href="{% url 'faqs' %}">
+                        <i class="fa fa-question-circle"></i>
+                        <span class="icon ">FAQ's</span>
+                    </a>
+                    <a href="{% url 'contact_us' %}">
+                        <i class="fa fa-phone"></i>
+                        <span class="icon ">Contact Us</span>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-sign-out"></i>
+                        <span class="icon ">Logout</span>
+                    </a>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="col-md-7 col-12 ">
+            <div class="card-detalis">
+                <div class="page-title">
+                    SAVED CARDS
+
+                </div>
+                <div class="card-detalis-saved">
+                    No Card details saved by you.
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Common Part Start Profile Page -->
+
+
+</div>
+
+
+
+{% block javascript %} {% endblock %} {% endblock %}

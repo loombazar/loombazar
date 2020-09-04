@@ -1,0 +1,164 @@
+.customer-account .my-profile {
+    min-height: 235px;
+    background-color: #008ECC;
+    border-radius: 8px;
+    padding: 20px 20px 20px;
+    border: 1px solid blue;
+    margin-top: 3px;
+    /* //width: 100%; */
+    /* //margin: 0px 0px 16px; */
+}
+
+.customer-account .my-profile .user-profile-img {
+    text-align: left;
+    width: 50px;
+    height: 50px;
+    ;
+    border-radius: 50%;
+}
+
+.customer-account .my-profile .customerfullname h3 {
+    font-size: 30px;
+    color: #fff;
+    margin: 0px 0px 0px 20px;
+    text-transform: capitalize;
+    padding: 0;
+}
+
+.customer-account .my-profile .customerfullname h6 {
+    /* font-size:10px; */
+    line-height: 10px;
+    color: #fff;
+    margin: 10px 0px 0px 20px;
+    color: rgba(255, 255, 255, .4);
+    font-style: italic;
+}
+
+.customer-account .my-profile .editinfo {
+    display: block;
+    color: red;
+    margin-left: 40px;
+}
+
+.customer-account .my-profile .address {
+    margin-left: 4px;
+    width: 98%;
+}
+
+.customer-account .personaldetalis {
+    min-height: 235px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 20px 20px 20px;
+    border: 1px solid #f2f2f2;
+    /* //width: 100%; */
+    /* //margin: 0px 0px 16px; */
+}
+
+.customer-account .personaldetalis .label {
+    margin: 0 0 1px;
+    line-height: 20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .5);
+    line-height: 16px;
+    padding: 5px;
+}
+
+.customer-account .personaldetalis .txt {
+    font-size: 14px;
+    color: #000;
+    line-height: 25px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.customlink {
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    margin: 0 0 16px;
+}
+
+.customlink .linkcontrol a {
+    font-family: JioMedium;
+    font-size: 14px;
+    color: #000;
+    line-height: 24px;
+    padding: 14px 0 14px 6px;
+    width: 100%;
+    transition: 0.5s;
+    display: inline-block;
+    position: relative;
+    background: 0 0;
+}
+
+.customlink .linkcontrol a:after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    background: #e6ffff;
+    height: 0.5px;
+    left: 0;
+    width: 100%;
+}
+
+.customlink .linkcontrol a:before {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    content: '';
+    background: #FFF;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+.customlink .linkcontrol a:hover:before {
+    width: 100%;
+}
+
+.customlink .linkcontrol i {
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.customlink .linkcontrol a .icon {
+    font-size: 20px;
+}
+
+@media all and (max-width:360px) {
+    .customer-account .my-profile .customerfullname h3 {
+        font-size: 15px;
+        color: #fff;
+        margin: 0px 0px 0px 20px;
+        text-transform: capitalize;
+        padding: 0;
+    }
+    .customer-account .my-profile .customerfullname h6 {
+        font-size: 15px;
+        line-height: 10px;
+        color: #fff;
+        margin: 10px 0px 0px 20px;
+        color: rgba(255, 255, 255, .4);
+        font-style: italic;
+    }
+    .customer-account .my-profile .editinfo {
+        display: block;
+        color: red;
+        margin-left: 10px;
+    }
+    .customer-account .my-profile .payment {
+        margin-left: 7px;
+    }
+    .customer-account .my-profile .order {
+        width: 85%;
+    }
+    .customer-account .my-profile .address {
+        margin-left: 6px;
+        width: 85%;
+    }
+}

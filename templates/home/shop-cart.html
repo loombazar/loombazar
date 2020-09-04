@@ -1,4 +1,18 @@
-{% extends 'home/base.html' %} {% block content %} {% load static %}
+{% extends 'home/base.html' %}{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/b_shop-cart.css'%}">
+<style>
+    .btn-circle.btn-sm {
+        width: 30px;
+        height: 30px;
+        padding: 0px;
+        border-radius: 15px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+{% endblock %} {% block content %}
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
     <div class="container">
@@ -15,7 +29,7 @@
 <!-- Breadcrumb End -->
 
 <!-- Shop Cart Section Begin -->
-<section class="shop-cart spad">
+<section class="shop-cart spad" id="shop_cart_view">
     <div class="container">
         <div class="row">
             <div class="shopping-cart">
@@ -25,69 +39,32 @@
                     <label class="product-details1">Product</label>
                     <label class="product-price">Price</label>
                     <label class="product-quantity">Quantity</label>
-                    <label class="product-removal">Remove</label>
                     <label class="product-line-price">Total</label>
+                    <label class="product-removal">Remove</label>
+
                 </div>
 
-                <div class="product">
-                    <div class="product-image1">
-                        <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+                <div id="product_table">
+                    <div class="product">
+                        <div class="product-image1">
+                            <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
+                        </div>
+                        <div class="product-details1">
+                            <div class="product-title"> Rice Dog Food</div>
+                            <p class="product-description">our dog's turn!</p>
+                        </div>
+                        <div class="product-price">45.99</div>
+                        <div class="product-quantity">
+                            <input type="number" value="1" min="1" max="5">
+                        </div>
+                        <div class="product-removal">
+                            <button class="remove-product">
+                                <span class="icon_close"></span>
+                        </button>
+                        </div>
+                        <div class="product-line-price">45.99</div>
                     </div>
-                    <div class="product-details1">
-                        <div class="product-title">Dingo Dog Bones</div>
-                        <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
-                    </div>
-                    <div class="product-price">12.99</div>
-                    <div class="product-quantity">
-                        <input type="number" value="2" min="1" max="3">
-                    </div>
-                    <div class="product-removal">
-                        <button class="remove-product">
-                      Remove
-                    </button>
-                    </div>
-                    <div class="product-line-price">25.98</div>
                 </div>
-
-                <div class="product">
-                    <div class="product-image1">
-                        <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
-                    </div>
-                    <div class="product-details1">
-                        <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-                        <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
-                    </div>
-                    <div class="product-price">45.99</div>
-                    <div class="product-quantity">
-                        <input type="number" value="1" min="1" max="5">
-                    </div>
-                    <div class="product-removal">
-                        <button class="remove-product">
-                      Remove
-                    </button>
-                    </div>
-                    <div class="product-line-price">45.99</div>
-                </div>
-
-                <!-- <div class="totals">
-                  <div class="totals-item">
-                    <label>Subtotal</label>
-                    <div class="totals-value" id="cart-subtotal">71.97</div>
-                  </div>
-                  <div class="totals-item">
-                    <label>Tax (5%)</label>
-                    <div class="totals-value" id="cart-tax">3.60</div>
-                  </div>
-                  <div class="totals-item">
-                    <label>Shipping</label>
-                    <div class="totals-value" id="cart-shipping">15.00</div>
-                  </div>
-                  <div class="totals-item totals-item-total">
-                    <label>Grand Total</label>
-                    <div class="totals-value" id="cart-total">90.57</div>
-                  </div>
-                </div> -->
-
 
 
             </div>
@@ -118,8 +95,8 @@
                 <div class="cart__total__procced ">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>$ 750.0</span></li>
-                        <li>Total <span>$ 750.0</span></li>
+                        <li>Subtotal <span id="subtotal"> 750.0</span></li>
+                        <li>Total <span id="total"> 750.0</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Proceed to checkout</a>
                 </div>
@@ -127,62 +104,116 @@
         </div>
     </div>
 </section>
+{% endblock %}
 <!-- Shop Cart Section End -->
+{% block javascript %}
+<script>
+    create_cart();
+    check_cart();
 
-<!-- Instagram Begin -->
-<div class="instagram">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-1.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-2.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-3.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-4.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-5.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="static/home/img/instagram/insta-6.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Instagram End -->
+    function create_cart() {
+        if (localStorage.getItem('cart1') == null) {
+            cart1 = {};
+        } else {
+            cart1 = JSON.parse(localStorage.getItem('cart1'));
+
+        }
+    }
+
+    function check_cart() {
+
+        if (Object.keys(cart1).length == 0) {
+            document.getElementById('shop_cart_view').innerHTML = "<div class='container text-center' ><div><img src='static/home/undraw_empty_xct9.svg' style='height:300px;width:400px;' class='img-responsive' /></div><h3 style='font-weight:bold;text-align:center;'>Your Cart is Empty</h3><div class='col-lg-6 col-md-6 col-sm-6 ' style='margin:0 auto;' ><div class='cart__btn' ><a href='#' style='border-top:3px solid red;border-bottom:1px solid red;'>Continue Shopping</a></div></div></div>";
+        } else {
+
+            cart1 = JSON.parse(localStorage.getItem('cart1'));
+            create_cart_table(cart1);
+        }
+
+
+    }
+
+
+
+    $(".product-removal").on('click', 'button.remove-product', function() {
+        id = this.id.toString();
+        delete cart1[id];
+        localStorage.setItem('cart1', JSON.stringify(cart1));
+        cart1 = JSON.parse(localStorage.getItem('cart1'));
+        document.location.reload(true);
+        check_cart();
+
+    });
+
+    function create_cart_table(data) {
+        var table = document.getElementById('product_table');
+        keys = Object.keys(data);
+        leng = Object.keys(data).length;
+        var final_price = 0;
+        var total_price = 0;
+
+        table.innerHTML = '';
+        for (var i = 0; i < leng; i++) {
+            id = keys[i]
+            total = data[id][3] * data[id][5];
+            data[id][6] = total;
+            total_price += total;
+            var row = "<div class='product'><div class='product-image1'><img src=" + data[id][0] + " /></div><div class='product-details1'><div class='product-title'>" + data[id][1] + "</div><p>" + data[id][2] + "</p></div><div class='product-price'>&#8377; " + data[id][3] + "</div><div class='product-quantity'><button class='btn btn-primary btn-sm btn-circle minus' id='minus" + id + "' >  -  </button><span id='qty" + id + "'> " + data[id][5] + "</span> <button class='btn btn-primary btn-sm btn-circle plus' id='plus" + id + "' >  +  </button></div><div class='product-line-price'><span id='tot" + id + "'>  &#8377; " + data[id][6] + "</span></div><div class='product-removal'><button class='remove-product btn-danger' id='" + id + "'><span class='icon_close' style='font-size:20px;'></span></button></div></div>";
+            table.innerHTML += row;
+
+        }
+        document.getElementById('subtotal').innerHTML = '&#8377; ' + total_price;
+        document.getElementById('total').innerHTML = '&#8377; ' + total_price;
+
+        function update_total_price(data) {
+            keys = Object.keys(data);
+            leng = Object.keys(data).length;
+            var total_price = 0;
+            for (var i = 0; i < leng; i++) {
+                id = keys[i]
+                total = data[id][3] * data[id][5];
+                total_price += total;
+            }
+            document.getElementById('subtotal').innerHTML = '&#8377; ' + total_price;
+            document.getElementById('total').innerHTML = '&#8377; ' + total_price;
+
+
+        }
+
+        $('.product-quantity').on('click', 'button.plus', function() {
+            id = this.id;
+            pk = id.slice(4, );
+            cart1[pk][5] += 1;
+
+            if (cart1[pk][5] > 5) {
+                cart1[pk][5] = 5;
+
+            }
+            total = cart1[pk][3] * cart1[pk][5];
+            cart1[pk][6] = total;
+            qtyid = 'qty' + pk;
+            totid = 'tot' + pk;
+            document.getElementById(qtyid).innerHTML = cart1[pk][5];
+            document.getElementById(totid).innerHTML = cart1[pk][6];
+            localStorage.setItem('cart1', JSON.stringify(cart1));
+            update_total_price(cart1);
+        });
+        $('.product-quantity').on('click', 'button.minus', function() {
+            id = this.id.toString();
+            pk = id.slice(5, );
+            cart1[pk][5] = Math.max(1, cart1[pk][5] - 1);
+            total = cart1[pk][3] * cart1[pk][5];
+            cart1[pk][6] = total;
+            qtyid = 'qty' + pk;
+            totid = 'tot' + pk;
+            document.getElementById(qtyid).innerHTML = cart1[pk][5];
+            document.getElementById(totid).innerHTML = cart1[pk][6];
+            localStorage.setItem('cart1', JSON.stringify(cart1));
+            update_total_price(cart1);
+        });
+
+
+    }
+</script>
+
 {% endblock %}

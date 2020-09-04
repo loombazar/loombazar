@@ -17,7 +17,14 @@ input.error {
     color: red;
     font-size: 20px;
 }
-
+#nav-tabConten  #passwordcheck{
+    float: right;
+    margin-left: -30px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+  
 
 /* .mycontent-left {
   border-right: 1px solid #333;

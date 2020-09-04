@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.core.mail import send_mail
 from random import sample
-
+from datetime import date
 
 # Create your views here.
 def logout(request):
@@ -102,5 +102,19 @@ def reset_password(request):
     user.save()
     messages.success(request,'Password Updated Successfully. Please login Again !!')
     return redirect('login_page')
+
+def edit_profile(request):
+    full_name = request.POST.get('full_name',None)
+    gender = request.POST.get('gender',None)
+    dob = request.POST.get('dob',None)
+    
+    mobile_number = request.POST.get('mobile_number',None)
+    user = request.user
+    print(dob)
+    user.update(full_name=full_name,gender=gender,mobile_number=mobile_number)
+    if dob:
+        user.update_dob(dob=dob)
+
+    return redirect('profile_page')
 
 

@@ -10,12 +10,12 @@ class User(AbstractBaseUser,PermissionsMixin):
     full_name = models.CharField(max_length=200,null=True,blank=True)
     first_name = models.CharField(max_length=100,null=False,blank=False)
     last_name = models.CharField(max_length=100,null=True,blank=True)
-    mobile_number = models.CharField(max_length=20,null=False,blank=False)
+    mobile_number = models.CharField(max_length=20,null=True,blank=True)
     email = models.EmailField(null=False,blank=False,unique=True)
     password = models.CharField(max_length=200,null=False,blank=False)
     age = models.CharField(max_length=20,null=True,blank=True)
     gender = models.CharField(max_length=30,null=True,blank=True)
-    
+    dob = models.DateField(null=True,blank=True)
 
     date = models.DateTimeField(auto_now_add=True)
 
@@ -34,3 +34,13 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+    def update(self,full_name,gender,mobile_number):
+        self.full_name = full_name
+        self.gender = gender
+        self.mobile_number = mobile_number
+        self.save()
+
+    def update_dob(self,dob):
+        self.dob = dob
+        self.save()

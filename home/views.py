@@ -27,7 +27,26 @@ def login_page(request):
     return render(request,'home/login.html')
 
 def profile_page(request):
-    return render(request,'home/user_profile.html')
+
+    full_name = ''
+    user = request.user
+    if user.full_name:
+        full_name = user.full_name
+    else:
+        full_name = user.first_name + " " + user.last_name
+    dob = user.dob
+    gender = user.gender
+    mobile = user.mobile_number
+
+
+    context = {
+        'full_name' : full_name,
+        'dob' : dob,
+        'gender':gender,
+        'mobile_number':mobile
+    }
+
+    return render(request,'home/user_profile.html',context)
 
 def order_history(request):
     return render(request,'home/order_history.html')

@@ -26,7 +26,7 @@
                                 {% endif %}
                                 <h6>{{user.email}}</h6>
                                 {% if user.mobile_number %}
-                                <h6>+91-{{user.mobile_number}}</h6>
+                                <h6>{{user.mobile_number}}</h6>
                                 {% endif %}
                             </div>
                         </div>
@@ -72,29 +72,29 @@
                                 Full Name
                             </div>
                             <div class="txt" style="text-transform:capitalize;">
-                                {% if user.full_name %} {{user.full_name}} {% else %} {{user.first_name}} {{user.last_name}} {% endif %}
+                                {% if user.full_name %} <span id="full_name" value="{{user.full_name}}">{{user.full_name}}</span> {% else %} <span id="first_last_name" value="{{user.first_name}} {{user.last_name}}">{{user.first_name}} {{user.last_name}}</span>                                {% endif %}
                             </div>
                             <div class="label">
                                 Mobile Number
                             </div>
                             <div class="txt">
-                                {% if user.mobile_number %} +91 {{user.mobile_number}} {% else %} <span style="color: darksalmon;">You have no Number</span> {% endif %}
+                                {% if user.mobile_number %} +91 <span id="mobile_number">{{user.mobile_number}}</span> {% else %} <span style="color: darksalmon;">You have no Number</span> {% endif %}
                             </div>
 
                             <div class="label">
                                 Gender
                             </div>
                             <div class="txt">
-                                {% if user.gender %} {{user.gender}} {% else %} <span style="color: darksalmon;">You have no Gender</span> {% endif %}
+                                {% if user.gender %} <span id="gender">{{user.gender}}</span> {% else %} <span style="color: darksalmon;">You have no Gender</span> {% endif %}
                             </div>
 
                         </div>
                         <div class="col-md-6 mt-4">
                             <div class="label">
-                                Age
+                                DOB
                             </div>
                             <div class="txt">
-                                {% if user.age %} {{user.age}} {% else %} <span style="color: darksalmon;">You have no Age</span> {% endif %}
+                                {% if user.dob %} <span id="dob">{{user.dob}}</span> {% else %} <span style="color: darksalmon;">You have no Age</span> {% endif %}
                             </div>
                             <div class="label">
                                 Email
@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <a href="#updateModal" data-target="#updateModal" data-toggle="modal" class="text-danger" style="font-weight: bold;">Edit</a>
+                                <a href="#updateModal" id="edit_profile" data-target="#updateModal" data-toggle="modal" class="text-danger" style="font-weight: bold;">Edit</a>
                             </div>
 
                         </div>
@@ -157,7 +157,7 @@
                         <i class="fa fa-phone"></i>
                         <span class="icon ">Contact Us</span>
                     </a>
-                    <a href="">
+                    <a href="{% url 'logout' %}">
                         <i class="fa fa-sign-out"></i>
                         <span class="icon ">Logout</span>
                     </a>
@@ -190,24 +190,26 @@
      <span aria-hidden="true">&times;</span>
    </button>
             </div>
-            <div class="modal-body bootstrap-iso">
-                <form action="#!">
+            <form action="{% url 'edit_profile' %}" method="POST">
+                {% csrf_token %}
+                <div class="modal-body bootstrap-iso">
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Full name" type="text">
+                        <input name="full_name" class="form-control" placeholder="Full name" type="text" id="full_name_input">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-transgender"></i> </span>
                         </div>
-                        <select class="form-control">
-                 <option selected=""> Select Gender</option>
-                 <option>Male</option>
-                 <option>Female</option>
-                 <option>Others</option>
+                        <select class="form-control" name="gender" id="gender_input">
+                 <option selected value=""> Select Gender</option>
+                 <option value="Male">Male</option>
+                 <option value="Female">Female</option>
+                 <option value="Others">Others</option>
              </select>
                     </div>
                     <!-- form-group end.// -->
@@ -215,7 +217,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
                         </div>
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                        <input class="form-control" id="datepicker" name="dob" placeholder="MM/DD/YYYY" type="date" />
                     </div>
                     <!-- form-group// -->
 
@@ -223,43 +225,27 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Email" type="email">
+                        <input name="email" class="form-control" placeholder="{{user.email}}" type="email" disabled>
                     </div>
                     <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            <span class="input-group-text"> +91 </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Phone Number" type="email">
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number_input">
                     </div>
                     <!-- form-group// -->
+                </div>
+                <div class="modal-footer">
 
-
-
-
-
-                </form>
-
-            </div>
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-primary btn-block">Save changes</button>
-            </div>
+                    <button type="submit" class="btn btn-primary btn-block">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <!-- End User Modal -->
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -277,4 +263,18 @@
         })
     })
 </script>
+
+<script>
+    $("#edit_profile").click(function() {
+        full_name = "{{full_name}}";
+        dob = "{{dob|date:'Y-m-d'}}";
+        gender = "{{gender}}";
+        mobile = "{{mobile_number}}";
+        $("#full_name_input").val(full_name);
+        $("#gender_input").val(gender);
+        $("#datepicker").val(dob);
+        $("#mobile_number_input").val(mobile);
+    });
+</script>
+
 {% endblock %} {% endblock %}

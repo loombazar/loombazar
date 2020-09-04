@@ -1,0 +1,96 @@
+.index-second-phase  .container-img
+   {
+      width: 100%;
+      
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      padding-top: 20px;
+   }
+  .index-second-phase  .container-img  h2
+   {
+       background: #0062cc;
+       color: #fff;
+       width: 200px;
+       font-size: 24px;
+
+       padding: 2px;
+       height: 40px;
+
+   }
+   .index-second-phase .container-img h2::after
+   {
+       content: '';
+       border-top: 40px solid #0062cc;
+       border-right: 40px solid transparent;
+       position: relative;
+       left: 37px;
+       top: 39px;
+   }
+  .index-second-phase  .row-img
+   {
+       padding-top: 10px;
+      margin-top: 0px;
+
+
+   }
+   .index-second-phase img
+   {
+       width: 100%;
+       border-radius: 3px;
+   }
+   .index-second-phase .product-bottom .fa
+   {
+     color: #28a745;
+     font-size: 10px;
+
+
+   }
+  .index-second-phase  .product-bottom h3
+   {
+       font-size: 10px;
+       
+
+   }
+  .index-second-phase  .product-bottom h5
+   {
+         font-size: 5px;
+         padding-bottom: 10px;
+       
+   }
+   .index-second-phase .overlay
+   {
+      display: block;
+      opacity: 0;
+      position: absolute;
+      top: 10%;
+      margin-left: 0;
+      width: 70px;
+      border-radius: 50%;
+      
+
+   }
+    .index-second-phase  .product-top:hover .overlay
+     {
+         opacity: 1;
+         margin-left: 5%;
+         transition: 0.5s;
+
+     }
+     .index-second-phase .overlay .fa
+     {
+        cursor: pointer;
+        background-color:#fff;
+        color: #000;
+        height: 35px;
+        border-radius: 50%;
+        font-size: 20px;
+          padding: 7px;
+          margin: 5%;
+          margin-bottom: 5%;
+     }
+    .index-second-phase .overlay .btn-secondary
+     {
+         background: transparent !important;
+         border: none !important;
+         box-shadow: none !important;
+     }

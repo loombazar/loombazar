@@ -13,17 +13,6 @@ def index(request):
     return render(request,'home/index.html',params)
 
 
-def contact_page(request):
-    return render(request,'home/contact.html')
 
-def cart_page(request):
-    return render(request,'home/shop-cart.html')
 
-def checkout_page(request):
-    return render(request,'home/checkout.html')
 
-def login_page(request):
-    return render(request,'home/login.html')
-
-def test(request):
-    return render(request,'home/product_view.html')

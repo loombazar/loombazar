@@ -1,5 +1,9 @@
- {% extends 'home/base.html' %} {% load static %} {% load socialaccount %} {% block css %}
-<link rel="stylesheet" href="{% static 'home/css/login.css' %} " type="text/css"> {% endblock %} {% block content %}
+{% extends 'home/base.html'%} {% block content %}{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'home/css/login.css' %} " type="text/css"> {% endblock %}
+
+
+<!-- Login and Registration Page Start -->
+
 <div class="logincontainer my-5" style="border: 2px solid brown;border-radius: 6px;" id="loginpage">
     <br>
     <h4 style="font-weight: bold;text-align:center;color:dodgerblue;">
@@ -186,89 +190,7 @@
     </div>
     <br>
 </div>
-
-
-
-<!-- Forget Password -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="forget_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight: bold;">Reset your password here ...</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-            </div>
-            <div class="modal-body">
-
-
-                <div id="email_sending" style="border: 3px solid tomato;padding:3px;border-radius:4px;box-shadow:8px 8px 8px gray;">
-
-                    <div class="form-group">
-                        <label for="email" class="col-sm-6 control-label">
-                                Enter your registerd email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="forget_emaill" placeholder="Enter Email" name="forget_email" required />
-                            <h6 id="forget_email_errmsgg" style="margin-top: 4px;"></h6>
-                        </div>
-                    </div>
-                    <button class="btn btn-info" id="otp1" value="Send OTP">Send OTP</button>
-
-                </div>
-                <h6 id="email_send_msgg" style="text-align: center;color:green;margin-top:2px;"></h6>
-                <br>
-                <div id="verify_otp" style="pointer-events: none;opacity: 0.3;border: 2px solid tomato;padding:3px;border-radius:4px;box-shadow:4px 4px 4px gray;">
-                    <form method="POST">
-                        <div class="form-group">
-                            <label for="otp" class="col-sm-8 control-label">
-                                Enter the OTP from your Email </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="verify_otp_txt" placeholder="Enter OTP" name="verify_otp_txt" required />
-                                <h6 id="verify_otp_errmsg" style="margin-top: 4px;"></h6>
-                            </div>
-                        </div>
-                        <input type="submit" class="btn btn-warning" name="verify" value="Verify OTP">
-                    </form>
-                </div>
-                <br>
-                <div id="new_password" style="pointer-events: none;opacity: 0.3;border: 2px solid tomato;padding:3px;border-radius:4px;box-shadow:4px 4px 4px gray;">
-                    <form action="" method="POST">
-                        <div class="form-group">
-                            <label for="otp" class="col-sm-6 control-label">
-                                Enter your new password </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="new_password_txt" placeholder="Ente New Password" name="new_password_txt" />
-                                <h6 id="new_password_errmsg" style="margin-top: 4px;"></h6>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="otp" class="col-sm-6 control-label">
-                                Enter your password again </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="confirm_password_txt" placeholder="Enter New Password Again" name="confirm_password_txt" />
-                                <h6 id="confirm_password_errmsg" style="margin-top: 4px;"></h6>
-                            </div>
-                        </div>
-                        <input type="submit" class="btn btn-success" name="set_password" value="Set Password">
-                    </form>
-                </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!--Bachan-->
-
+<!-- Login and Registration Page End -->
 <!-- Forgot Password Page Degin -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

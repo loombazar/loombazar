@@ -4,9 +4,6 @@ from math import ceil
 
 # Create your views here.
 def index(request):
-<<<<<<< HEAD
-    return render(request,'home/base.html')
-=======
     products = Product.objects.all()
     print(products)
     n = len(products)
@@ -14,7 +11,6 @@ def index(request):
     print(nslides)
     params = {'no_of_slides':nslides,'range':range(1,nslides),'products':products}
     return render(request,'home/index.html',params)
->>>>>>> 39a72de21b0eb6a6954c97ce16834b230c59830d
 
 
 def contact_page(request):
@@ -28,3 +24,6 @@ def checkout_page(request):
 
 def login_page(request):
     return render(request,'home/login.html')
+
+def test(request):
+    return render(request,'home/product_view.html')

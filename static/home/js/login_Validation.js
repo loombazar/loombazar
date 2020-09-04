@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 39a72de21b0eb6a6954c97ce16834b230c59830d
 $(function() {
     $.validator.addMethod("pwcheck", function(value) {
         return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);

@@ -172,45 +172,51 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{% url 'add_new_address' %}" method="POST">
+                <form action="{% url 'add_new_address' %}" method="POST" id="profileaddnewaddress">
                     {% csrf_token %}
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
-                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text">
+                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code" >
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
-                        <input name="district" class="form-control" placeholder="District" type="text">
+                        <input name="district" class="form-control" placeholder="District" type="text" id="district">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
-                        <input name="state" class="form-control" placeholder="State" type="text">
+                        <input name="state" class="form-control" placeholder="State" type="text" id="state">
                     </div>
                     <!-- form-group// -->
 
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
-                        <input name="full_name" class="form-control" placeholder="Full Name" type="text">
+                        <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="full_name">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
-                        <input name="address" class="form-control" placeholder="Address" type="text">
+                        <input name="address" class="form-control" placeholder="Address" type="text" id="address">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
-                        <input name="landmark" class="form-control" placeholder="LandMark" type="text">
+                        <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="landmark">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">+91</span>
-                        </div>
-
-                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text">
+                    <div class="form-group" style="position: relative;">
+                        
+                       
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
+                         <label for="youridhere" class="static-value" style="
+                            position:absolute;
+                            left:10px;
+                            font-weight:bold;
+                            font-size:0.8em;
+                            color:#444;
+                            top:9px;
+                        ">+91:</label>
                     </div>
                     <!-- form-group// -->
 
@@ -244,49 +250,56 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{% url 'edit_address' %}" method="POST">
+                <form action="#" method="POST" id="editDelivaryAddress">
                     {% csrf_token %}
+                    
+                    <div class="form-group">
 
-                    <input type="hidden" id="edit_address_pk" name="edit_address_pk">
-                    <div class="form-group input-group">
-
-                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code">
+                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code" >
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
                         <input name="district" class="form-control" placeholder="District" type="text" id="district">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
                         <input name="state" class="form-control" placeholder="State" type="text" id="state">
                     </div>
                     <!-- form-group// -->
 
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
                         <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="full_name">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
                         <input name="address" class="form-control" placeholder="Address" type="text" id="address">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
+                    <div class="form-group">
 
                         <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="landmark">
                     </div>
                     <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">+91</span>
-                        </div>
-
-                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number">
+                    <div class="form-group" style="position: relative;">
+                        
+                       
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
+                         <label for="youridhere" class="static-value" style="
+                            position:absolute;
+                            left:10px;
+                            font-weight:bold;
+                            font-size:0.8em;
+                            color:#444;
+                            top:9px;
+                        ">+91:</label>
                     </div>
                     <!-- form-group// -->
+
+                    
 
                     <div class="modal-footer justify-content-center">
 
@@ -336,6 +349,7 @@
 <!-- end Modal Add new Address -->
 {% endblock %} {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script src="{% static 'home/js/delivary_address.js' %}"></script>
 <script>
     $('.edit_modal').click(function() {
         id = this.id;

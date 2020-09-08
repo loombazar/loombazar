@@ -157,6 +157,7 @@ $(function() {
                 },
                 mobile: {
                     required: true,
+                    number:true,
                     phonecheck: true
 
                 },
@@ -183,6 +184,7 @@ $(function() {
                 },
                 mobile: {
                     required: 'Mobile is Mandatory!',
+                     number:'Only Numeric Allowed!'
 
 
                 },

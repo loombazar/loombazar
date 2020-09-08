@@ -16,6 +16,7 @@ urlpatterns = [
     path('contact_us',views.contact_us,name='contact_us'),
     path('legal_information',views.legal_information,name='legal_information'),
     path('wishlist',views.wishlist,name='wishlist'),
+    path('checkout_page',views.checkout_page,name='checkout_page'),
 
    
 

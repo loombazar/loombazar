@@ -79,6 +79,8 @@ def legal_information(request):
 
 def wishlist(request):
     return render(request,'home/wishlist.html')
+def checkout_page(request):
+    return render(request,'home/checkout_page.html')
 
 
 

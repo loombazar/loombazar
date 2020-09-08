@@ -14,21 +14,25 @@
                 <div class="my-profile">
                     <div class="row">
                         <div class="col-xs-2">
-                            <img src="static/home/img/profile/download.png" alt="no-photo" class="user-profile-img">
-
+                            <a href="{% url 'profile_page' %}">
+                                <img src="static/home/img/profile/download.png" alt="no-photo" class="user-profile-img">
+                            </a>
                         </div>
                         <div class="col-xs-8">
-                            <div class="customerfullname">
-                                {% if user.full_name %}
-                                <h3 style="font-weight: bold;">{{user.full_name}}</h3>
-                                {% else %}
-                                <h3 style="font-weight: bold;">{{user.first_name}} {{user.last_name}}</h3>
-                                {% endif %}
-                                <h6>{{user.email}}</h6>
-                                {% if user.mobile_number %}
-                                <h6>+91-{{user.mobile_number}}</h6>
-                                {% endif %}
-                            </div>
+
+                            <a href="{% url 'profile_page' %}">
+                                <div class="customerfullname">
+                                    {% if user.full_name %}
+                                    <h3 style="font-weight: bold;">{{user.full_name}}</h3>
+                                    {% else %}
+                                    <h3 style="font-weight: bold;">{{user.first_name}} {{user.last_name}}</h3>
+                                    {% endif %}
+                                    <h6>{{user.email}}</h6>
+                                    {% if user.mobile_number %}
+                                    <h6>+91-{{user.mobile_number}}</h6>
+                                    {% endif %}
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -56,21 +60,11 @@
                             <a href="{% url 'order_history' %}" class="payment-order-text">
                                        Order Histrory
                                    </a>
-
                         </div>
-
-
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
-
-
     </div>
 
 
@@ -102,11 +96,7 @@
                         <i class="fa fa-sign-out"></i>
                         <span class="icon ">Logout</span>
                     </a>
-
-
-
                 </div>
-
 
             </div>
 

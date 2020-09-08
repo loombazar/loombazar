@@ -105,10 +105,10 @@
     <div class="container container-img">
         <h2>New Arrivals</h2>
         <div class="row row-img">
+            {% for prod in products %}
             <div class="col-md-4 col-sm-4 col-xs-6">
                 <div class="product-top">
-                    <a href="#"> <img src="static/home/img/suta/s1.jpg" class="image-suta1"> </a>
-
+                    <a href="{% url 'product_details' pk=prod.pk %}"> <img src="{{prod.image1.url}}" class="prod_image" data-img1="{{prod.image1.url}}" data-img2="{{prod.image2.url}}"> </a>
                 </div>
                 <div class="product-bottom text-center">
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -116,117 +116,13 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star-half-o" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <p>CHITRA</p>
-                    <p>Rs.3900</p>
-
-
+                    <p>{{prod.product_name}}</p>
+                    <p>Rs. {{prod.discount_price}}</p>
                 </div>
-
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="product-top">
-                    <a href="#"> <img src="static/home/img/suta/s2.jpg" class="image-suta2"> </a>
-
-                </div>
-                <div class="product-bottom text-center">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <p>DOLON</p>
-                    <p>Rs.3200</p>
-
-
-                </div>
-
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="product-top">
-                    <a href="#"> <img src="static/home/img/suta/s3.jpg" class="image-suta3"> </a>
-
-                </div>
-                <div class="product-bottom text-center">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <p>DISGUSTINGLY BEAUTIFUL</p>
-                    <p>RS.2100</p>
-
-
-                </div>
-
-            </div>
-
-
+            {% endfor %}
 
         </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="product-top">
-                    <a href="#"> <img src="static/home/img/suta/s4.jpg" class="image-suta4"></a>
-
-                </div>
-                <div class="product-bottom text-center">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <p>FLAMENCO DANCE</p>
-                    <p>Rs.3500</p>
-
-
-                </div>
-
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="product-top">
-                    <a href="#"><img src="static/home/img/suta/s5.jpg" class="image-suta5"> </a>
-
-                </div>
-                <div class="product-bottom text-center">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <p>RAGA BHAIRAVI</p>
-                    <p>RS. 2,900</p>
-
-
-                </div>
-
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="product-top">
-                    <a href="#"><img src="static/home/img/suta/s7.jpg" class="image-suta7"></a>
-
-
-                </div>
-                <div class="product-bottom text-center">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <p>BOSSY CARAMEL</p>
-                    <p>Rs. 2,100</p>
-
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-
-
-
     </div>
 
 
@@ -257,151 +153,24 @@
         </div>
         <!-------------- product image slider ----------------->
         <ul class="autoWidth cs-hidden my-3">
-
+            {% for item in products %}
             <li class="item-a">
-                <a href="#">
+                <a href="{% url 'product_details' pk=item.pk %}">
                     <div class="product_box">
                         <!-- product image -->
                         <div class="product_img">
 
-                            <img src="{% static 'home/img/indexpage/1.1.jpg' %}" alt="product image">
-
-
+                            <img src="{{item.image1.url}}" alt="product image">
                         </div>
                         <!-- product details -->
                         <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 9999</div>
+                            <div class="product_name">{{item.product_name}}</div>
+                            <div class="product_price">Rs {{item.discount_price}}</div>
                         </div>
                     </div>
                 </a>
             </li>
-            <li class="item-b">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/2.0.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 9990</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item-c">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/3.0.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 999</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item-d">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/4.0.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 9999</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item-e">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/5.0.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 9999</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item-f">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/6.0.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 9990</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item-g">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/1.1.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree</div>
-                            <div class="product_price">Rs 999</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item-h">
-                <a href="#">
-                    <div class="product_box">
-                        <!-- product image -->
-                        <div class="product_img">
-
-                            <img src="{% static 'home/img/indexpage/2.1.jpg' %}" alt="product image">
-
-
-                        </div>
-                        <!-- product details -->
-                        <div class="product_details">
-                            <div class="product_name">Sambalpuri saree1</div>
-                            <div class="product_price">Rs 999</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
+            {% endfor %}
 
         </ul>
     </div>
@@ -786,47 +555,22 @@
             }
         });
 
-        $('#total').text(autoplaySlider.getTotalSlideCount());
+        $('#total').text(autoplaySlider.getTotalSlideCount);
     });
 </script>
 
-
 <script>
-    $(document).ready(function() {
-        $(".image-suta1").hover(function() {
-            $(this).attr('src', 'static/home/img/suta/s11.jpg');
-        }, function() {
-            $(this).attr('src', 'static/home/img/suta/s1.jpg');
-        });
-        $(".image-suta2").hover(function() {
-            $(this).attr('src', 'static/home/img/suta/s22.jpg');
-        }, function() {
-            $(this).attr('src', 'static/home/img/suta/s2.jpg');
-        });
+    $(".prod_image").on({
+        "mouseover": function() {
 
-        $(".image-suta3").hover(function() {
-            $(this).attr('src', 'static/home/img/suta/s33.jpg');
-        }, function() {
-            $(this).attr('src', 'static/home/img/suta/s3.jpg');
-        });
+            var img2 = $(this).data('img2');
+            this.src = img2;
 
-        $(".image-suta4").hover(function() {
-            $(this).attr('src', 'static/home/img/suta/s44.jpg');
-        }, function() {
-            $(this).attr('src', 'static/home/img/suta/s4.jpg');
-        });
-
-        $(".image-suta5").hover(function() {
-            $(this).attr('src', 'static/home/img/suta/s55.jpg');
-        }, function() {
-            $(this).attr('src', 'static/home/img/suta/s5.jpg');
-        });
-
-        $(".image-suta7").hover(function() {
-            $(this).attr('src', 'static/home/img/suta/s77.jpg');
-        }, function() {
-            $(this).attr('src', 'static/home/img/suta/s7.jpg');
-        });
+        },
+        "mouseout": function() {
+            var img1 = $(this).data('img1');
+            this.src = img1;
+        }
     });
 </script>
 

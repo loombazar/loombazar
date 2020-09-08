@@ -1,4 +1,109 @@
-{% extends 'home/base.html' %}{% load static %} {% block content %}
+{% extends 'home/base.html' %}{% load static %} {% block css %}
+<style>
+    /* The container */
+    
+    .container1 {
+        display: inline block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    /* Hide the browser's default radio button */
+    
+    .container1 input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    /* Create a custom radio button */
+    
+    .checkmark1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 50%;
+    }
+    
+    .checkmark2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 40px;
+        background-color: #2F4F4F;
+        color: white;
+        border-radius: 20%;
+        text-align: center;
+        padding-top: 2px;
+    }
+    /* On mouse-over, add a grey background color */
+    
+    .container1:hover input~.checkmark1 {
+        background-color: #ccc;
+    }
+    
+    .container1:hover input~.checkmark2 {
+        background-color: #ccc;
+    }
+    /* When the radio button is checked, add a blue background */
+    
+    .container1 input:checked~.checkmark1 {
+        background-color: #2196F3;
+    }
+    
+    .container1 input:checked~.checkmark2 {
+        background-color: #2196F3;
+    }
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    
+    .checkmark1:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    
+    .checkmark2:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    /* Show the indicator (dot/circle) when checked */
+    
+    .container1 input:checked~.checkmark1:after {
+        display: block;
+    }
+    
+    .container1 input:checked~.checkmark2:after {
+        display: block;
+    }
+    /* Style the indicator (dot/circle) */
+    
+    .container1 .checkmark1:after {
+        top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+    }
+    
+    .container1 .checkmark2:after {
+        top: 9px;
+        left: 9px;
+        border-radius: 20%;
+        background-color: #A52A2A;
+    }
+</style>
+{% endblock %} {% block content %}
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
     <div class="container">
@@ -51,7 +156,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="product__details__text">
-                    <h3><span id="pnamepk{{prod.pk}}">{{prod.product_name}}</span> <span id="pbrandpk{{prod.pk}}"> {{prod.product_brand}}</span></h3>
+                    <h3><span id="pnamepk{{prod.pk}}" style="font-size: large;font-weight:bold;">{{prod.product_name}}</span> {% if prod.product_brand %}<span id="pbrandpk{{prod.pk}}"> {{prod.product_brand}}</span>{% endif %}</h3>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -80,6 +185,49 @@
                     <div class="product__details__widget">
                         <ul>
                             <li>
+                                <span>Available color:</span>
+                                <div class="color__checkbox">
+                                    {% for item in prod.colors_set.all %}
+
+                                    <label class="container1">
+                                        <input type="radio"  name="color_radio" id="col_radio" value="{{item.color_name}}" {% if forloop.first %} checked {% endif %}>
+                                        <span class="checkmark1"  style="background-color: {{item.color_code}};"></span>
+                                      </label> {% endfor %}
+                                </div>
+                            </li>
+                            <!--<li>
+                                <span>Available size:</span>
+                                <div class="size__btn ">
+                                    <label for="xs-btn " class="active ">
+                                            <input type="radio " id="xs-btn ">
+                                            xs
+                                        </label>
+                                    <label for="s-btn ">
+                                            <input type="radio " id="s-btn ">
+                                            s
+                                        </label>
+                                    <label for="m-btn ">
+                                            <input type="radio " id="m-btn ">
+                                            m
+                                        </label>
+                                    <label for="l-btn ">
+                                            <input type="radio " id="l-btn ">
+                                            l
+                                        </label>
+                                </div>
+                            </li>-->
+                            <li>
+                                <span>Available size:</span>
+                                <div class="size__btn ">
+                                    {% for item in prod.sizes_set.all %}
+                                    <label class="container1">
+                                        <input type="radio"  name="size_radio" value="{{item.size}}" {% if forloop.first %} checked {% endif %}>
+                                        <span class="checkmark2" style="border-radius: 20%;font-weight:bold;">{{item.size}} </span>
+                                      </label> {% endfor %}
+                                </div>
+                            </li>
+                            <br>
+                            <li>
                                 <span>Availability:</span>
                                 <div class="stock__checkbox">
                                     <label for="stockin">
@@ -89,7 +237,7 @@
                                         </label>
                                 </div>
                             </li>
-                            <li>
+                            <!--<li>
                                 <span>Available color:</span>
                                 <div class="color__checkbox">
                                     <label for="red">
@@ -105,28 +253,8 @@
                                             <span class="checkmark grey-bg"></span>
                                         </label>
                                 </div>
-                            </li>
-                            <li>
-                                <span>Available size:</span>
-                                <div class="size__btn">
-                                    <label for="xs-btn" class="active">
-                                            <input type="radio" id="xs-btn">
-                                            xs
-                                        </label>
-                                    <label for="s-btn">
-                                            <input type="radio" id="s-btn">
-                                            s
-                                        </label>
-                                    <label for="m-btn">
-                                            <input type="radio" id="m-btn">
-                                            m
-                                        </label>
-                                    <label for="l-btn">
-                                            <input type="radio" id="l-btn">
-                                            l
-                                        </label>
-                                </div>
-                            </li>
+                            </li>-->
+
                             <li>
                                 <span>Promotions:</span>
                                 <p>Free shipping</p>
@@ -135,35 +263,35 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="product__details__tab">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+            <div class="col-lg-12 ">
+                <div class="product__details__tab ">
+                    <ul class="nav nav-tabs " role="tablist ">
+                        <li class="nav-item ">
+                            <a class="nav-link active " data-toggle="tab " href="#tabs-1 " role="tab ">Description</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Specification</a>
+                        <li class="nav-item ">
+                            <a class="nav-link " data-toggle="tab " href="#tabs-2 " role="tab ">Specification</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Reviews ( 2 )</a>
+                        <li class="nav-item ">
+                            <a class="nav-link " data-toggle="tab " href="#tabs-3 " role="tab ">Reviews ( 2 )</a>
                         </li>
                     </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                    <div class="tab-content ">
+                        <div class="tab-pane active " id="tabs-1 " role="tabpanel ">
                             <h6>Description</h6>
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret. Neque porro lorem quisquam est, qui dolorem ipsum quia dolor
                                 si. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla consequat massa quis enim.</p>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
                                 pellentesque eu, pretium quis, sem.</p>
                         </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                        <div class="tab-pane " id="tabs-2 " role="tabpanel ">
                             <h6>Specification</h6>
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret. Neque porro lorem quisquam est, qui dolorem ipsum quia dolor
                                 si. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla consequat massa quis enim.</p>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
                                 pellentesque eu, pretium quis, sem.</p>
                         </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                        <div class="tab-pane " id="tabs-3 " role="tabpanel ">
                             <h6>Reviews ( 2 )</h6>
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret. Neque porro lorem quisquam est, qui dolorem ipsum quia dolor
                                 si. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla consequat massa quis enim.</p>
@@ -174,99 +302,99 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="related__title">
+        <div class="row ">
+            <div class="col-lg-12 text-center ">
+                <div class="related__title ">
                     <h5>RELATED PRODUCTS</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{% static 'home/img/product/related/rp-1.jpg' %}">
-                        <div class="label new">New</div>
-                        <ul class="product__hover">
-                            <li><a href="{% static 'home/img/product/related/rp-1.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+            <div class="col-lg-3 col-md-4 col-sm-6 ">
+                <div class="product__item ">
+                    <div class="product__item__pic set-bg " data-setbg="{% static 'home/img/product/related/rp-1.jpg' %} ">
+                        <div class="label new ">New</div>
+                        <ul class="product__hover ">
+                            <li><a href="{% static 'home/img/product/related/rp-1.jpg' %} " class="image-popup "><span class="arrow_expand "></span></a></li>
+                            <li><a href="# "><span class="icon_heart_alt "></span></a></li>
+                            <li><a href="# "><span class="icon_bag_alt "></span></a></li>
                         </ul>
                     </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Buttons tweed blazer</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    <div class="product__item__text ">
+                        <h6><a href="# ">Buttons tweed blazer</a></h6>
+                        <div class="rating ">
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
                         </div>
-                        <div class="product__price">$ 59.0</div>
+                        <div class="product__price ">$ 59.0</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{% static 'home/img/product/related/rp-2.jpg' %}">
-                        <ul class="product__hover">
-                            <li><a href="{% static 'home/img/product/related/rp-2.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+            <div class="col-lg-3 col-md-4 col-sm-6 ">
+                <div class="product__item ">
+                    <div class="product__item__pic set-bg " data-setbg="{% static 'home/img/product/related/rp-2.jpg' %} ">
+                        <ul class="product__hover ">
+                            <li><a href="{% static 'home/img/product/related/rp-2.jpg' %} " class="image-popup "><span class="arrow_expand "></span></a></li>
+                            <li><a href="# "><span class="icon_heart_alt "></span></a></li>
+                            <li><a href="# "><span class="icon_bag_alt "></span></a></li>
                         </ul>
                     </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Flowy striped skirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    <div class="product__item__text ">
+                        <h6><a href="# ">Flowy striped skirt</a></h6>
+                        <div class="rating ">
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
                         </div>
-                        <div class="product__price">$ 49.0</div>
+                        <div class="product__price ">$ 49.0</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{% static 'home/img/product/related/rp-3.jpg' %}">
-                        <div class="label stockout">out of stock</div>
-                        <ul class="product__hover">
-                            <li><a href="{% static 'home/img/product/related/rp-3.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+            <div class="col-lg-3 col-md-4 col-sm-6 ">
+                <div class="product__item ">
+                    <div class="product__item__pic set-bg " data-setbg="{% static 'home/img/product/related/rp-3.jpg' %} ">
+                        <div class="label stockout ">out of stock</div>
+                        <ul class="product__hover ">
+                            <li><a href="{% static 'home/img/product/related/rp-3.jpg' %} " class="image-popup "><span class="arrow_expand "></span></a></li>
+                            <li><a href="# "><span class="icon_heart_alt "></span></a></li>
+                            <li><a href="# "><span class="icon_bag_alt "></span></a></li>
                         </ul>
                     </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Cotton T-Shirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    <div class="product__item__text ">
+                        <h6><a href="# ">Cotton T-Shirt</a></h6>
+                        <div class="rating ">
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
                         </div>
-                        <div class="product__price">$ 59.0</div>
+                        <div class="product__price ">$ 59.0</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{% static 'home/img/product/related/rp-4.jpg' %}">
-                        <ul class="product__hover">
-                            <li><a href="{% static 'home/img/product/related/rp-4.jpg' %}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+            <div class="col-lg-3 col-md-4 col-sm-6 ">
+                <div class="product__item ">
+                    <div class="product__item__pic set-bg " data-setbg="{% static 'home/img/product/related/rp-4.jpg' %} ">
+                        <ul class="product__hover ">
+                            <li><a href="{% static 'home/img/product/related/rp-4.jpg' %} " class="image-popup "><span class="arrow_expand "></span></a></li>
+                            <li><a href="# "><span class="icon_heart_alt "></span></a></li>
+                            <li><a href="# "><span class="icon_bag_alt "></span></a></li>
                         </ul>
                     </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Slim striped pocket shirt</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    <div class="product__item__text ">
+                        <h6><a href="# ">Slim striped pocket shirt</a></h6>
+                        <div class="rating ">
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
                         </div>
-                        <div class="product__price">$ 59.0</div>
+                        <div class="product__price ">$ 59.0</div>
                     </div>
                 </div>
             </div>
@@ -275,69 +403,10 @@
 </section>
 <!-- Product Details Section End -->
 
-<!-- Instagram Begin -->
-<div class="instagram">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{% static 'home/img/instagram/insta-1.jpg' %}">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{% static 'home/img/instagram/insta-2.jpg' %}">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-3.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-4.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="img/instagram/insta-5.jpg">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{% static 'home/img/instagram/insta-6.jpg' %}">
-                    <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
-                        <a href="#">@ ashion_shop</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Instagram End -->
 {% endblock %} {% block javascript %}
 
 <script>
     create_cart();
-
-
-
 
     function create_cart() {
         if (localStorage.getItem('cart1') == null) {
@@ -345,10 +414,8 @@
         } else {
             cart1 = JSON.parse(localStorage.getItem('cart1'));
 
-
         }
     }
-
     pk_val = document.getElementById('pk_val').innerText;
     val = 'pk' + pk_val;
 
@@ -364,8 +431,7 @@
         $(viewcart).hide();
     }
 
-
-    $(".add_to_cart").click(function() {
+    $(".add_to_cart ").click(function() {
         id1 = this.id.toString();
         id = id1.slice(3, );
         pk = id1.slice(5, );
@@ -383,11 +449,14 @@
             dprice = document.getElementById('dprice' + id).innerHTML;
             aprice = document.getElementById('aprice' + id).innerHTML;
             pimage = document.getElementById('pimage' + id).src;
+            color = $('input[name="color_radio"]:checked').val();
+            size = $('input[name="size_radio"]:checked').val();
+            console.log('color : ' + color);
+            console.log('size : ' + size);
             total = parseInt(dprice) * quantity;
-            cart1[id] = [pimage, pname, pbrand, dprice, aprice, quantity, total];
+            cart1[id] = [pimage, pname, pbrand, dprice, aprice, quantity, total, color, size];
 
         }
-
         localStorage.setItem('cart1', JSON.stringify(cart1));
         cartlen = Object.keys(cart1).length;
         addcart = '#addcart' + pk;
@@ -396,9 +465,6 @@
         viewcart = '#viewcart' + pk;
         $(viewcart).show();
     });
-
-
-
     console.log(cart1);
 </script>
 

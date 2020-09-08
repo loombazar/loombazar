@@ -29,11 +29,18 @@ def login_page(request):
 def profile_page(request):
 
     full_name = ''
+    first_name = ''
+    last_name = ''
     user = request.user
+    if user.first_name:
+        first_name = user.first_name
+    if user.last_name:
+        last_name = user.last_name
+
     if user.full_name:
         full_name = user.full_name
     else:
-        full_name = user.first_name + " " + user.last_name
+        full_name = first_name + " " + last_name
     dob = user.dob
     gender = user.gender
     mobile = user.mobile_number

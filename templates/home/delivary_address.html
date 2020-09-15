@@ -176,7 +176,7 @@
                     {% csrf_token %}
                     <div class="form-group">
 
-                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code" >
+                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group">
@@ -206,10 +206,10 @@
                     </div>
                     <!-- form-group// -->
                     <div class="form-group" style="position: relative;">
-                        
-                       
+
+
                         <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
-                         <label for="youridhere" class="static-value" style="
+                        <label for="youridhere" class="static-value" style="
                             position:absolute;
                             left:10px;
                             font-weight:bold;
@@ -252,43 +252,43 @@
             <div class="modal-body">
                 <form action="#" method="POST" id="editDelivaryAddress">
                     {% csrf_token %}
-                    
+
                     <div class="form-group">
 
-                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code" >
+                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="edit_pin_code">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group">
 
-                        <input name="district" class="form-control" placeholder="District" type="text" id="district">
+                        <input name="district" class="form-control" placeholder="District" type="text" id="edit_district">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group">
 
-                        <input name="state" class="form-control" placeholder="State" type="text" id="state">
+                        <input name="state" class="form-control" placeholder="State" type="text" id="edit_state">
                     </div>
                     <!-- form-group// -->
 
                     <div class="form-group">
 
-                        <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="full_name">
+                        <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="edit_full_name">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group">
 
-                        <input name="address" class="form-control" placeholder="Address" type="text" id="address">
+                        <input name="address" class="form-control" placeholder="Address" type="text" id="edit_address_val">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group">
 
-                        <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="landmark">
+                        <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="edit_landmark">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group" style="position: relative;">
-                        
-                       
-                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
-                         <label for="youridhere" class="static-value" style="
+
+
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="edit_mobile_number" style="padding:5px 5px 5px 40px;">
+                        <label for="youridhere" class="static-value" style="
                             position:absolute;
                             left:10px;
                             font-weight:bold;
@@ -299,7 +299,7 @@
                     </div>
                     <!-- form-group// -->
 
-                    
+
 
                     <div class="modal-footer justify-content-center">
 
@@ -360,15 +360,16 @@
         state = document.getElementById("state" + id).innerText;
         pin = document.getElementById("pin" + id).innerText;
         mobile = document.getElementById("mobile" + id).innerText;
+        console.log(address, district, state);
 
-        $("#pin_code").val(pin);
-        $("#district").val(district);
-        $("#state").val(state);
-        $("#full_name").val(full_name);
-        $("#address").val(address);
-        $("#landmark").val(landmark);
-        $("#mobile_number").val(mobile);
-        $("#edit_address_pk").val(id);
+        $("#edit_pin_code").val(pin);
+        $("#edit_district").val(district);
+        $("#edit_state").val(state);
+        $("#edit_full_name").val(full_name);
+        $("#edit_address_val").val(address);
+        $("#edit_landmark").val(landmark);
+        $("#edit_mobile_number").val(mobile);
+        $("#edit_address_pk1").val(id);
     });
 </script>
 <script>
@@ -397,5 +398,4 @@
 
     });
 </script>
-
 {% endblock %}

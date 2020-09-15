@@ -80,7 +80,11 @@ def legal_information(request):
 def wishlist(request):
     return render(request,'home/wishlist.html')
 def checkout_page(request):
-    return render(request,'home/checkout_page.html')
+    adds = Address.objects.filter(email=request.user.email).order_by('-date')
+    context={
+        'adds':adds,
+    }
+    return render(request,'home/checkout_page.html',context)
 
 
 

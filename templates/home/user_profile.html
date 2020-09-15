@@ -161,12 +161,7 @@
                         <i class="fa fa-sign-out"></i>
                         <span class="icon ">Logout</span>
                     </a>
-
-
-
                 </div>
-
-
             </div>
 
         </div>
@@ -195,13 +190,13 @@
                 <div class="modal-body bootstrap-iso">
 
                     <div class="form-group">
-                        
+
                         <input name="full_name" class="form-control" placeholder="Full name" type="text" id="full_name_input">
                     </div>
                     <!-- form-group// -->
                     <div class="form-group">
-                        
-                 <select class="form-control" name="gender" id="gender_input">
+
+                        <select class="form-control" name="gender" id="gender_input">
                  <option selected value=""> Select Gender</option>
                  <option value="Male">Male</option>
                  <option value="Female">Female</option>
@@ -210,21 +205,21 @@
                     </div>
                     <!-- form-group end.// -->
                     <div class="form-group">
-                        
+
                         <input class="form-control" id="datepicker" name="dob" placeholder="MM/DD/YYYY" type="date" />
                     </div>
                     <!-- form-group// -->
 
                     <div class="form-group">
-                        
+
                         <input name="email" class="form-control" placeholder="{{user.email}}" type="email" disabled>
                     </div>
                     <!-- form-group// -->
                     <div class="form-group" style="position: relative;">
-                        
-                       
-                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
-                         <label for="youridhere" class="static-value" style="
+
+
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="edit_mobile_number" style="padding:5px 5px 5px 40px;">
+                        <label for="youridhere" class="static-value" style="
                             position:absolute;
                             left:10px;
                             font-weight:bold;
@@ -233,7 +228,7 @@
                             top:9px;
                         ">+91:</label>
                     </div>
-                    
+
                     <!-- form-group// -->
                 </div>
                 <div class="modal-footer">
@@ -252,15 +247,14 @@
 {% block javascript %}
 
 <script>
-    $(document).ready(function()
-     {
-         // Custom Validation Password Check
-         $.validator.addMethod("phonecheck", function(value) {
-                return /^[6-9]\d{9}$/.test(value);
-            }, "Please Enter Mobile Number starts With 9 or 8 or 7 or 6 and  Total 10 Digits ");
+    $(document).ready(function() {
+        // Custom Validation Password Check
+        $.validator.addMethod("phonecheck", function(value) {
+            return /^[6-9]\d{9}$/.test(value);
+        }, "Please Enter Mobile Number starts With 9 or 8 or 7 or 6 and  Total 10 Digits ");
 
 
-            // End Custom Validation Password Check
+        // End Custom Validation Password Check
         var date_input = $('input[name="date"]'); //our date input has the name "date"
         var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
@@ -270,65 +264,60 @@
             autoclose: true,
         });
         //    Edit Profile Page Chackout
-    var profilepageedit = $('#profilepage_edit');
+        var profilepageedit = $('#profilepage_edit');
 
-if (profilepageedit.length) {
-    profilepageedit.validate({
-        rules: {
-            full_name: {
-                required: true,
-                minlength: 3
-            },
-            email: {
-                required: true
-            },
-            mobile_number: {
-                required: true,
-                number:true,
-                phonecheck: true
-                
-
-            },
-            gender: {
-                required: true
-            },
-            dob: {
-                required: true
-            }
+        if (profilepageedit.length) {
+            profilepageedit.validate({
+                rules: {
+                    full_name: {
+                        required: true,
+                        minlength: 3
+                    },
+                    email: {
+                        required: true
+                    },
+                    mobile_number: {
+                        required: true,
+                        number: true,
+                        phonecheck: true
 
 
-
-        },
-        messages: {
-            full_name: {
-                required: 'Name is Mandatory!'
-            },
-            email: {
-                required: 'Email is Mandatory!'
-            },
-            mobile_number: {
-                required: 'Mobile is Mandatory!',
-                number:'Only Numberic Allowed'
-
-
-            },
-            gender: {
-                required: 'Gender is Mandatory!'
-            },
-            dob:
-            {
-                required:'DOB is Mandatory'
-            }
-            
+                    },
+                    gender: {
+                        required: true
+                    },
+                    dob: {
+                        required: true
+                    }
 
 
 
+                },
+                messages: {
+                    full_name: {
+                        required: 'Name is Mandatory!'
+                    },
+                    email: {
+                        required: 'Email is Mandatory!'
+                    },
+                    mobile_number: {
+                        required: 'Mobile is Mandatory!',
+                        number: 'Only Numberic Allowed'
+
+
+                    },
+                    gender: {
+                        required: 'Gender is Mandatory!'
+                    },
+                    dob: {
+                        required: 'DOB is Mandatory'
+                    }
+                }
+
+            });
         }
 
-    });
-}
-
-//  //  End  Edit Profile Page 
+        //  //  End  Edit Profile Page
 
 
     })
@@ -340,10 +329,11 @@ if (profilepageedit.length) {
         dob = "{{dob|date:'Y-m-d'}}";
         gender = "{{gender}}";
         mobile = "{{mobile_number}}";
+
         $("#full_name_input").val(full_name);
         $("#gender_input").val(gender);
         $("#datepicker").val(dob);
-        $("#mobile_number_input").val(mobile);
+        $("#edit_mobile_number").val(mobile);
     });
 </script>
 

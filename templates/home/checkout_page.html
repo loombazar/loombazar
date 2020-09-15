@@ -1,25 +1,54 @@
- {% extends 'home/base.html'%} {% block content %}{% load static %}{% block css %} 
-<link rel="stylesheet" href="{% static 'home/css/checkout_page.css' %} " type="text/css"> {% endblock %}
+ {% extends 'home/base.html'%} {% load static %}{% block css %}
+<link rel="stylesheet" href="{% static 'home/css/checkout_page.css' %} " type="text/css">
+<style>
+    @media only screen and (min-width: 992px) {
+        textarea {
+            height: 60px;
+            width: 520px;
+        }
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        textarea {
+            height: 75px;
+            width: 350px;
+        }
+    }
+    
+    @media only screen and (max-width: 767px) {
+        textarea {
+            height: 85px;
+            width: 350px;
+        }
+    }
+    
+    @media only screen and (max-width: 479px) {
+        textarea {
+            height: 90px;
+            width: 250px;
+        }
+    }
+</style>
+
+{% endblock %} {% block content %}
 <div class="container mt-3">
     <div class="row">
         <div class="col-md-8">
             <div id="accordion" class="accordion-style">
                 <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <i class="fa fa-sign-in  symbol" aria-hidden="true"></i>
 
-                        <button class="btn btn-link color-accrodian" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
+                        <a class="btn-link color-accrodian" style="font-weight: bold;">
 
-                            Login 
+                            Login
 
-                    </button>
+                    </a>
                         <i class="fa fa-angle-right fa-2x arrow-style" aria-hidden="true"></i>
 
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                        data-parent="#accordion">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -28,22 +57,21 @@
                                     <form action="#" id="checkout-login">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address<span style="color: red;">*</span></label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                            <input type="email" class="form-control" id="login_email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                            <h6 id="login_email_errmsg" style="margin-top: 4px;"></h6>
 
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password<span style="color: red;">*</span></label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Password" name="password">
-                                                <i toggle="#exampleInputPassword1" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+                                            <i toggle="#exampleInputPassword1" class="fa fa-fw fa-eye field-icon toggle-password" id="passwordcheck" style="float: right;
                                 margin-left: -30px;
                                 margin-top: -25px;
                                 position: relative;
                                 z-index: 2;"></i>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary">login</button>
+                                        <button type="submit" id="login_submit" class="btn btn-primary">login</button>
                                         <a href="#">Forgot Password</a>
                                     </form>
 
@@ -54,30 +82,26 @@
                                     <form action="" id="checkout-register">
                                         <div class="form-group">
                                             <label for="exampleInputFullName">Full Name<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" id="exampleInputFullName"
-                                                aria-describedby="fullnameHelp" placeholder="Enter FullName" name="username">
+                                            <input type="text" class="form-control" id="exampleInputFullName" aria-describedby="fullnameHelp" placeholder="Enter FullName" name="username">
 
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputMobile">Mobile Number<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" id="exampleInputMobile"
-                                                aria-describedby="mobileHelp" placeholder="Enter MobileNumber" name="mobile">
+                                            <input type="text" class="form-control" id="exampleInputMobile" aria-describedby="mobileHelp" placeholder="Enter MobileNumber" name="mobile">
 
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address<span style="color: red;">*</span></label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Enter email" name="email">
-
+                                            <input type="email" class="form-control" id="register_email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                            <h6 id="reg_email_errmsg" style="margin-top: 4px;"></h6>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password<span style="color: red;">*</span></label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Password" name="password">
-                                                
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary">Register</button>
+                                        <button type="submit" id="reg_submit" class="btn btn-primary">Register</button>
 
                                     </form>
 
@@ -88,60 +112,48 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         <i class="fa fa-address-card fa-2x symbol" aria-hidden="true"></i>
 
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="false" aria-controls="collapseTwo">
+                        <a class="btn-link collapsed" style="font-weight: bold;">
 
                             Delivary Address
-                    </button>
+                    </a>
                         <i class="fa fa-angle-right fa-2x arrow-style" aria-hidden="true"></i>
 
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body delivary-adress">
-                            <div class="selected_checkbox">
-                                <input class="form-check-input position-static" type="radio" name="blankRadio"
-                                id="blankRadio1" value="option1" aria-label="..."
-                                checked="">
+                        <div class="addNewAddress">
+                            <a href="#fullHeightModalRight" data-target="#fullHeightModalRight" data-toggle="modal" class="btn add-address" style="width: max-content;font-weight:bold;">+ Add New Address</a>
+
+                        </div>
+                        {% for addr in user.address_set.all %}
+                        <div class="input-group" style="margin-top: 5px;margin-bottom:10px;">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" aria-label="Radio button for following text input" name="radio-adds">
+                                </div>
                             </div>
-                            
-                              <div class="fullname">
-                                 <p> <span>Bachan Ghatuary<span> <span>Home</span> <span>9040444389</span> </p>
-                                <small>Infornt of GajaptiHotel,puri,GoudabadSahi,Balipanda</small><br/>
-                                <small>puri,odisha-752001</small>
-                              </div>
-                              <div class="edit">
-                                  <a href="" class="edit_modal" data-toggle="modal" data-target="#edit_address"  style="color:red;">Edit</a>
-                              </div>
-                              
-
+                            <!--<textarea class="add_txt" style="background-color: #FFFFE0;resize:none;" placeholder="" disabled><span id="{{addr.pk}}full_name">{{addr.full_name}}</span> <span id="{{addr.pk}}address">{{addr.address}}</span> <span id="{{addr.pk}}landmark">{{addr.landmark}}</span> <span id="{{addr.pk}}district">{{addr.district}}</span> <span id="{{addr.pk}}state">{{addr.state}}</span> <span id="{{addr.pk}}pin_code">{{addr.pin_code}}</span></textarea>-->
+                            <textarea class="add_txt" contenteditable="true" style="background-color: #FFFFE0;resize:none;" placeholder="" disabled>{{addr.full_name}} , {{addr.address}} , {{addr.landmark}} , {{addr.district}} , {{addr.state}} , {{addr.pin_code}} , {{addr.mobile_number}}</textarea>
+                            <a href="#fullHeightModalRight" data-target="#edit_address" data-toggle="modal" id="checkoutadd{{addr.pk}}" data-name="{{addr.full_name}}" data-address="{{addr.address}}" data-landmark="{{addr.landmark}}" data-district="{{addr.district}}" data-state="{{addr.state}}"
+                                data-pin="{{addr.pin_code}}" data-number="{{addr.mobile_number}}" class="checkout_address" style="margin-left: 15px;font-size:large;"><span class="fa fa-edit"></span></a>
                         </div>
-                        <div>
-                            <button class="btn bg-warning ml-5 mb-2">Delivery Here</button>
-                        </div>
-                        <hr/>
-                         <div class="addNewAddress">
-                            <a href="#fullHeightModalRight" data-target="#fullHeightModalRight" data-toggle="modal" class="add-address">+Add New Address</a>
-
-                         </div>
+                        {% endfor %}
                     </div>
                 </div>
+
                 <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <i class="fa  fa-key fa-2x symbol" aria-hidden="true"></i>
 
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                            aria-expanded="false" aria-controls="collapseThree">
+                        <a class="btn-link collapsed" style="font-weight: bold;">
                             OTP Verification
-                           
-                    </button>
+                    </a>
                         <i class="fa fa-angle-right fa-2x arrow-style  " aria-hidden="true"></i>
 
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                        data-parent="#accordion">
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
@@ -149,19 +161,18 @@
                                         <form action="#" id="mobileverfication-form">
                                             <div class="form-group">
                                                 <label for="exampleMobile">Mobile Number<span style="color: red;">*</span></label>
-                                                <input type="text" class="form-control" id="exampleMobile"
-                                                    aria-describedby="mobileHelp" placeholder="Mobile Number" name="mobile">
+                                                <input type="text" class="form-control" id="exampleMobile" aria-describedby="mobileHelp" placeholder="Mobile Number" name="mobile">
 
-                                                    <small class="text-muted">Either mobile Number Exist send otp or change the Mobile Number.</small>
-    
+                                                <small class="text-muted">Either mobile Number Exist send otp or change the Mobile Number.</small>
+
                                             </div>
-                                            
-    
+
+
                                             <button type="submit" class="btn btn-primary" id="send-otp">Send Otp</button>
-                                            
+
                                         </form>
-    
-                                      </div>
+
+                                    </div>
 
                                 </div>
                                 <div class="col-md-5">
@@ -170,67 +181,49 @@
 
 
                             </div>
-                               <div class="row">
-                                     <div class="col-md-7 mt-2">
-                                           <div class="otp-verfication">
-                                            <form action="#" id="otpverfication-form">
-                                                <div class="form-group">
-                                                    <label for="exampleInputOtp">OTP<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="exampleInputOtp"
-                                                        aria-describedby="otpHelp" placeholder="Enter OTP" name="otp">
-                                                        
-        
-                                                </div>
-                                                
-        
-                                                <button type="submit" class="btn btn-primary" >Submit</button>
-                                                
-                                            </form>
-
-                                           </div>
-
-                                     </div>
-                                     <div class="col-md-5">
-
-                                     </div>
-
-                               </div>
-                              
-
-                            
+                            <div class="row">
+                                <div class="col-md-7 mt-2">
+                                    <div class="otp-verfication">
+                                        <form action="#" id="otpverfication-form">
+                                            <div class="form-group">
+                                                <label for="exampleInputOtp">OTP<span style="color: red;">*</span></label>
+                                                <input type="text" class="form-control" id="exampleInputOtp" aria-describedby="otpHelp" placeholder="Enter OTP" name="otp">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingFour">
+                    <div class="card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                         <i class="fa fa-first-order fa-2x symbol" aria-hidden="true"></i>
 
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                            aria-expanded="false" aria-controls="collapseFour">
+                        <a class="btn-link collapsed" style="font-weight: bold;">
                             Order Summary
-
-                           
-                    </button>
+                    </a>
                         <i class="fa fa-angle-right fa-2x arrow-style  " aria-hidden="true"></i>
 
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                        data-parent="#accordion">
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
                             Order Summary
 
-                             
+
                         </div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingFive">
+                    <div class="card-header" id="headingFive" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                         <i class="fa fa-credit-card fa-2x symbol" aria-hidden="true"></i>
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
-                            aria-expanded="false" aria-controls="collapseFive">
+                        <a class="btn-link collapsed" style="font-weight: bold;">
 
                             Payment
-                    </button>
+                    </a>
                         <i class="fa fa-angle-right fa-2x arrow-style  " aria-hidden="true"></i>
 
                     </div>
@@ -240,16 +233,14 @@
 
                                 <div class="d-block my-3">
                                     <div class="custom-control custom-radio">
-                                        <input id="debit" name="paymentMethod" type="radio"
-                                            class="custom-control-input" checked required>
-                                        <label class="custom-control-label" for="debit">Debit card/Credit card/Online</label>
+                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                                        <label class="custom-control-label" for="debit">Debit card/Credit card/UPI/Phonepy/Gpay</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input id="credit" name="paymentMethod" type="radio"
-                                            class="custom-control-input"  required>
+                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
                                         <label class="custom-control-label" for="credit">COD</label>
                                     </div>
-                                    
+
                                     <!-- <div class="custom-control custom-radio">
                                         <input id="paypal" name="paymentMethod" type="radio"
                                             class="custom-control-input" required>
@@ -276,7 +267,7 @@
                                     </div>
                                 </div>
                                 <div class="row"> -->
-                                    <!-- <div class="col-md-3 mb-3">
+                                <!-- <div class="col-md-3 mb-3">
                                         <label for="cc-expiration">Expiration</label>
                                         <input type="text" class="form-control" id="cc-expiration" placeholder=""
                                             required>
@@ -293,11 +284,8 @@
                                     </div>
                                 </div> -->
                                 <hr class="mb-4">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to
-                                    checkout</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Place Order</button>
                             </form>
-
-
                         </div>
                     </div>
                 </div>
@@ -345,14 +333,14 @@
                 </li>
             </ul>
 
-            <form class="card p-2">
+            <!--<form class="card p-2">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Promo code">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-secondary">Redeem</button>
                     </div>
                 </div>
-            </form>
+            </form>-->
         </div>
     </div>
 
@@ -365,55 +353,56 @@
 <!-- Full Height Modal Right -->
 <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-<!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
-<div class="modal-dialog modal-full-height modal-right" role="document">
+    <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+    <div class="modal-dialog modal-full-height modal-right" role="document">
 
 
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title w-100" id="myModalLabel">Add New Address</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Add New Address</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div>
-        <div class="modal-body">
-            <form action="#" method="POST" id="checkout-addnewaddress">
-                <div class="form-group">
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'checkout_new_address' %}" method="POST" id="checkout-addnewaddress">
+                    {% csrf_token %}
+                    <div class="form-group">
 
-                    <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code" >
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                    <input name="district" class="form-control" placeholder="District" type="text" id="district">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                        <input name="district" class="form-control" placeholder="District" type="text" id="district">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                    <input name="state" class="form-control" placeholder="State" type="text" id="state">
-                </div>
-                <!-- form-group// -->
+                        <input name="state" class="form-control" placeholder="State" type="text" id="state">
+                    </div>
+                    <!-- form-group// -->
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="full_name">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                        <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="full_name">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                    <input name="address" class="form-control" placeholder="Address" type="text" id="address">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                        <input name="address" class="form-control" placeholder="Address" type="text" id="address">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                    <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="landmark">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group" style="position: relative;">
-                    
-                   
-                    <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
-                     <label for="youridhere" class="static-value" style="
+                        <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="landmark">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group" style="position: relative;">
+
+
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
+                        <label for="youridhere" class="static-value" style="
                         position:absolute;
                         left:10px;
                         font-weight:bold;
@@ -421,21 +410,21 @@
                         color:#444;
                         top:9px;
                     ">+91:</label>
-                </div>
-                <!-- form-group// -->
-              
-                
+                    </div>
+                    <!-- form-group// -->
 
-                <div class="modal-footer justify-content-center">
 
-                    <button type="submit" class="btn btn-primary">Save Address</button>
-                </div>
-            </form>
+
+                    <div class="modal-footer justify-content-center">
+
+                        <button type="submit" class="btn btn-primary">Save Address</button>
+                    </div>
+                </form>
+
+            </div>
 
         </div>
-
     </div>
-</div>
 </div>
 <!-- End Full Height Modal Right -->
 
@@ -446,58 +435,59 @@
 <!-- Full Height Modal Right -->
 <div class="modal fade right" id="edit_address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-<!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
-<div class="modal-dialog modal-full-height modal-right" role="document">
+    <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+    <div class="modal-dialog modal-full-height modal-right" role="document">
 
 
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title w-100" id="myModalLabel1">Edit Address</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel1">Edit Address</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div>
-        <div class="modal-body">
-            <form action="#" method="POST" id="checkout-edit-profile">
-                
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'checkout_edit_address' %}" method="POST" id="checkout-edit-profile">
+                    {% csrf_token %}
 
-                <input type="hidden" id="edit_address_pk" name="edit_address_pk">
-                <div class="form-group">
 
-                    <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="pin_code" >
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                    <input type="hidden" id="checkout_edit_address_pk" name="checkout_edit_address_pk">
+                    <div class="form-group">
 
-                    <input name="district" class="form-control" placeholder="District" type="text" id="district">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                        <input name="pin_code" class="form-control" placeholder="Pin Code" type="text" id="edit_pin_code">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                    <input name="state" class="form-control" placeholder="State" type="text" id="state">
-                </div>
-                <!-- form-group// -->
+                        <input name="district" class="form-control" placeholder="District" type="text" id="edit_district">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                <div class="form-group">
+                        <input name="state" class="form-control" placeholder="State" type="text" id="edit_state">
+                    </div>
+                    <!-- form-group// -->
 
-                    <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="full_name">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <input name="address" class="form-control" placeholder="Address" type="text" id="address">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
+                        <input name="full_name" class="form-control" placeholder="Full Name" type="text" id="edit_full_name">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
 
-                    <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="landmark">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group" style="position: relative;">
-                    
-                   
-                    <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="mobile_number" style="padding:5px 5px 5px 40px;">
-                     <label for="youridhere" class="static-value" style="
+                        <input name="address" class="form-control" placeholder="Address" type="text" id="editaddress">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group">
+
+                        <input name="landmark" class="form-control" placeholder="LandMark" type="text" id="edit_landmark">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group" style="position: relative;">
+
+
+                        <input name="mobile_number" class="form-control" placeholder="Phone Number" type="text" id="edit_mobile_number" style="padding:5px 5px 5px 40px;">
+                        <label for="youridhere" class="static-value" style="
                         position:absolute;
                         left:10px;
                         font-weight:bold;
@@ -505,32 +495,98 @@
                         color:#444;
                         top:9px;
                     ">+91:</label>
-                </div>
-                <!-- form-group// -->
+                    </div>
+                    <!-- form-group// -->
 
-                <div class="modal-footer justify-content-center">
+                    <div class="modal-footer justify-content-center">
 
-                    <button type="submit" class="btn btn-primary">Update Address</button>
-                </div>
-            </form>
+                        <button type="submit" class="btn btn-primary">Update Address</button>
+                    </div>
+                </form>
+
+            </div>
 
         </div>
-
     </div>
 </div>
-</div>
-
-
 
 <!-- end  Modal Edit Address -->
 <!-- end  Full Height Modal Right -->
 
 
-
-
-
-
-{% block javascript %}
+{% endblock %} {% block javascript %}
 <script src="{% static 'home/js/checkout_page.js' %}"></script>
+<script>
+    $('#login_email').change(function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '{% url "login_page_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_exist) {
 
-{% endblock %} {% endblock %}
+                    document.getElementById('login_email').style.boxShadow = '2px 2px 2px green';
+                    document.getElementById('login_email_errmsg').textContent = " ";
+                    $('#login_submit').prop('disabled', false);
+                } else {
+                    $('#login_submit').prop('disabled', true);
+                    document.getElementById('login_email').style.boxShadow = '2px 2px 2px red';
+                    document.getElementById('login_email_errmsg').style.color = 'red';
+                    document.getElementById('login_email_errmsg').textContent = "Account with this email Doesn't exist";
+                }
+            }
+        })
+    });
+
+    $('#register_email').change(function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '{% url "login_page_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_exist) {
+                    $('#reg_submit').prop('disabled', true);
+                    document.getElementById('register_email').style.boxShadow = '2px 2px 2px red';
+                    document.getElementById('reg_email_errmsg').style.color = 'red';
+                    document.getElementById('reg_email_errmsg').textContent = "Account with this email Already exist";
+
+
+                } else {
+                    $('#reg_submit').prop('disabled', false);
+                    document.getElementById('register_email').style.boxShadow = '2px 2px 2px green';
+                    document.getElementById('reg_email_errmsg').textContent = " ";
+                }
+            }
+        })
+    });
+</script>
+<script>
+    $('.checkout_address').click(function() {
+        pk = this.id;
+        name = $(this).data('name');
+        address = $(this).data('address');
+        landmark = $(this).data('landmark');
+        district = $(this).data('district');
+        state = $(this).data('state');
+        pin = $(this).data('pin')
+        number = $(this).data('number');
+
+
+        $('#checkout_edit_address_pk').val(pk);
+        $('#edit_pin_code').val(pin);
+        $('#edit_district').val(district);
+        $('#edit_state').val(state);
+        $('#edit_full_name').val(name);
+        $('#edit_mobile_number').val(number);
+        $('#editaddress').val(address);
+        $('#edit_landmark').val(landmark);
+    });
+</script>
+
+{% endblock %}
